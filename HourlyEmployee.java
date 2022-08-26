@@ -58,7 +58,7 @@ public class HourlyEmployee {
         HourlyEmployee main = new HourlyEmployee();
 
         do {
-            out.println("\nSelect employees: ");
+            out.println("\nSelect employee: ");
             String input = obj.nextLine();
 
             main.setName(input);
@@ -107,10 +107,11 @@ public class HourlyEmployee {
                     : "Invalid type occurred";
             out.println("Total salary: Php." + compute);
 
-            obj.close();
+           
         }
 
         while (true);
+      
 
         
 

@@ -107,12 +107,10 @@ public class HourlyEmployee {
                     : "Invalid type occurred";
             out.println("Total salary: Php." + compute);
 
-           
+            
         }
 
         while (true);
-      
-
         
 
     }

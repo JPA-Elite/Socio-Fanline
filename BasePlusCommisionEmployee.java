@@ -1,17 +1,14 @@
 import java.util.Scanner;
 import static java.lang.System.out;
 
-public class BasePlusCommisionEmployee {
+public class BasePlusCommisionEmployee extends Employee{
     static int empID;
     static String empName;
     static double totalSales;
-    static String[] empList = { "Mary grace Galan", "Mikey Ferrer",
-            "Jhon Vincent Arnaiz", "Lady ann Lebosada", "Christian Lance" };
     static double baseSalary;
-
-    static int[] idList = { 21123113, 421256743, 15345275, 70245023, 13487565 };
-    static double[] TotalSalesList = { 13499, 42870, 113457, 10700, 5200 };
-
+    
+    static Employee main2 = new Employee();
+    static Employee.ThirdGroup G3 = main2.new ThirdGroup();
 
     // Getter
     public String getName() {
@@ -25,8 +22,8 @@ public class BasePlusCommisionEmployee {
 
     public static void TestingMain() {
 
-        for (int i = 1; i <= empList.length; i++) {
-            out.println(i + ". " + empList[i - 1]);
+        for (int i = 1; i <= G3.empList.length; i++) {
+            out.println(i + ". " + G3.empList[i - 1]);
         }
     }
 
@@ -60,32 +57,32 @@ public class BasePlusCommisionEmployee {
         
         main.setName(input2);
 
-        if (Integer.valueOf(main.getName()) <= empList.length) {
+        if (Integer.valueOf(main.getName()) <= G3.empList.length) {
             switch(Integer.valueOf(main.getName())){
                 case 1:
-                    empName = empList[0];
-                    empID = idList[0];
-                    totalSales = TotalSalesList[0];
+                    empName = G3.empList[0];
+                    empID = G3.idList[0];
+                    totalSales = G3.TotalSalesList[0];
                     break;
                 case 2:
-                    empName = empList[1];
-                    empID = idList[1];
-                    totalSales = TotalSalesList[1];
+                    empName = G3.empList[1];
+                    empID = G3.idList[1];
+                    totalSales = G3.TotalSalesList[1];
                     break;
                 case 3:
-                    empName = empList[2];
-                    empID = idList[2];
-                    totalSales = TotalSalesList[2];
+                    empName = G3.empList[2];
+                    empID = G3.idList[2];
+                    totalSales = G3.TotalSalesList[2];
                     break;
                 case 4:
-                    empName = empList[3];
-                    empID = idList[3];
-                    totalSales = TotalSalesList[3];
+                    empName = G3.empList[3];
+                    empID = G3.idList[3];
+                    totalSales = G3.TotalSalesList[3];
                     break;
                 case 5:
-                    empName = empList[4];
-                    empID = idList[4];
-                    totalSales = TotalSalesList[4];
+                    empName = G3.empList[4];
+                    empID = G3.idList[4];
+                    totalSales = G3.TotalSalesList[4];
                     break;
                 default:
                     break;
@@ -148,6 +145,7 @@ public class BasePlusCommisionEmployee {
         }
         catch (NumberFormatException e) {
             e.getMessage();
+            e.getCause();
             return false;
         }
     }

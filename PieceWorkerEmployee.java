@@ -1,16 +1,14 @@
 import java.util.Scanner;
 import static java.lang.System.out;
 
-public class PieceWorkerEmployee {
+
+public class PieceWorkerEmployee extends Employee{
     static int empID;
     static String empName;
     static double PieceChoice;
-    static String[] empList = { "Jei ann Bayer", "Cristopher Lawrence",
-            "Joseph Menoza", "Caspher Mae Ann", "Jaymar Sta.Ana" };
-
-    static double[] totalPiecesFinished = { 324, 120, 87, 45, 101 };
     static double ratePerPiece = 0;
-    static int[] idList = { 21026113, 401252713, 05325215, 50246013, 12437515 };
+    static Employee main2 = new Employee();
+    static Employee.FourthGroup G4 = main2.new FourthGroup();
 
     // Getter
     public String getName() {
@@ -24,8 +22,8 @@ public class PieceWorkerEmployee {
 
     public static void TestingMain() {
 
-        for (int i = 1; i <= empList.length; i++) {
-            out.println(i + ". " + empList[i - 1]);
+        for (int i = 1; i <= G4.empList.length; i++) {
+            out.println(i + ". " + G4.empList[i - 1]);
         }
     }
 
@@ -56,32 +54,32 @@ public class PieceWorkerEmployee {
         
         main.setName(input_store);
 
-        if (Integer.valueOf(main.getName()) <= empList.length) {
+        if (Integer.valueOf(main.getName()) <= G4.empList.length) {
             switch(Integer.valueOf(main.getName())){
                 case 1:
-                    empName = empList[0];
-                    empID = idList[0];
-                    PieceChoice = totalPiecesFinished[0];
+                    empName = G4.empList[0];
+                    empID = G4.idList[0];
+                    PieceChoice = G4.totalPiecesFinished[0];
                     break;
                 case 2:
-                    empName = empList[1];
-                    empID = idList[1];
-                    PieceChoice = totalPiecesFinished[1];
+                    empName = G4.empList[1];
+                    empID = G4.idList[1];
+                    PieceChoice = G4.totalPiecesFinished[1];
                     break;
                 case 3:
-                    empName = empList[2];
-                    empID = idList[2];
-                    PieceChoice = totalPiecesFinished[2];
+                    empName = G4.empList[2];
+                    empID = G4.idList[2];
+                    PieceChoice = G4.totalPiecesFinished[2];
                     break;
                 case 4:
-                    empName = empList[3];
-                    empID = idList[3];
-                    PieceChoice = totalPiecesFinished[3];
+                    empName = G4.empList[3];
+                    empID = G4.idList[3];
+                    PieceChoice = G4.totalPiecesFinished[3];
                     break;
                 case 5:
-                    empName = empList[4];
-                    empID = idList[4];
-                    PieceChoice = totalPiecesFinished[4];
+                    empName = G4.empList[4];
+                    empID = G4.idList[4];
+                    PieceChoice = G4.totalPiecesFinished[4];
                     break;
                 default:
                     break;
@@ -163,6 +161,7 @@ public class PieceWorkerEmployee {
             return true;
         } catch (NumberFormatException e) {
             e.getMessage();
+            e.getCause();
             return false;
         }
     }

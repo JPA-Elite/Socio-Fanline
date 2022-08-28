@@ -1,15 +1,17 @@
 import java.util.Scanner;
 import static java.lang.System.out;
 
-public class CommisionEmployee {
+public class CommisionEmployee extends Employee{
     static int empID;
     static String empName;
     static double totalSales;
-    static String[] empList = { "Joseph Tan", "Jovie Bendijo",
-            "Albert Cruz", "Rafael Mae Sanchez", "Rodrigo Martinez" };
 
-    static int[] idList = { 21103103, 123256743, 12345271, 10345023, 23487965 };
-    static double[] TotalSalesList = { 10499, 32870, 123457, 9700, 53200 };
+    static Employee main2 = new Employee();
+    static Employee.SecondGroup G2 = main2.new SecondGroup();
+    
+
+    
+    
 
 
     // Getter
@@ -24,8 +26,8 @@ public class CommisionEmployee {
 
     public static void TestingMain() {
 
-        for (int i = 1; i <= empList.length; i++) {
-            out.println(i + ". " + empList[i - 1]);
+        for (int i = 1; i <= G2.empList.length; i++) {
+            out.println(i + ". " + G2.empList[i - 1]);
         }
     }
 
@@ -44,32 +46,32 @@ public class CommisionEmployee {
         
         main.setName(input);
 
-        if (Integer.valueOf(main.getName()) <= empList.length) {
+        if (Integer.valueOf(main.getName()) <= G2.empList.length) {
             switch(Integer.valueOf(main.getName())){
                 case 1:
-                    empName = empList[0];
-                    empID = idList[0];
-                    totalSales = TotalSalesList[0];
+                    empName = G2.empList[0];
+                    empID = G2.idList[0];
+                    totalSales = G2.TotalSalesList[0];
                     break;
                 case 2:
-                    empName = empList[1];
-                    empID = idList[1];
-                    totalSales = TotalSalesList[1];
+                    empName = G2.empList[1];
+                    empID = G2.idList[1];
+                    totalSales = G2.TotalSalesList[1];
                     break;
                 case 3:
-                    empName = empList[2];
-                    empID = idList[2];
-                    totalSales = TotalSalesList[2];
+                    empName = G2.empList[2];
+                    empID = G2.idList[2];
+                    totalSales = G2.TotalSalesList[2];
                     break;
                 case 4:
-                    empName = empList[3];
-                    empID = idList[3];
-                    totalSales = TotalSalesList[3];
+                    empName = G2.empList[3];
+                    empID = G2.idList[3];
+                    totalSales = G2.TotalSalesList[3];
                     break;
                 case 5:
-                    empName = empList[4];
-                    empID = idList[4];
-                    totalSales = TotalSalesList[4];
+                    empName = G2.empList[4];
+                    empID = G2.idList[4];
+                    totalSales = G2.TotalSalesList[4];
                     break;
                 default:
                     break;

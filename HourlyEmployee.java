@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import static java.lang.System.out;
 
-public class HourlyEmployee {
+public class HourlyEmployee extends Employee{
     int empID;
     String empName;
     String totalHoursWorked;
@@ -13,14 +13,12 @@ public class HourlyEmployee {
     static double initial_salary;
 
     private String employee;
-    static String[] empList = { "Joshua Algadipe", "Janrae Fagaragan",
-            "Jan Nino Baoc", "Mark Joseph Molina", "Juspher Balangyao" };
+ 
 
-    static int[] idList = { 21103808, 323456743, 12343276, 98345623, 23467865 };
-
-    static double[] TotalhoursList = { 23, 20, 20, 19, 23 };
-    static double[] rateList = { 0.90, 0.80, 0.70, 0.75, 0.89 };
-
+    
+    static Employee main2 = new Employee();
+    static Employee.FirstGroup G1 = main2.new FirstGroup();
+    
     // Getter
     public String getName() {
         return employee;
@@ -31,12 +29,6 @@ public class HourlyEmployee {
         this.employee = empNew;
     }
 
-    public static void TestingMain() {
-
-        for (int i = 1; i <= empList.length; i++) {
-            out.println(i + ". " + empList[i - 1]);
-        }
-    }
 
     public HourlyEmployee() {
         TestingMain();
@@ -53,9 +45,11 @@ public class HourlyEmployee {
     }
 
     public static void main(String[] args) {
+        
+        HourlyEmployee main = new HourlyEmployee();
         initial_salary = 250;
         Scanner obj = new Scanner(System.in);
-        HourlyEmployee main = new HourlyEmployee();
+        
 
         do {
             out.println("\nSelect employee: ");
@@ -65,35 +59,35 @@ public class HourlyEmployee {
 
             switch (Integer.valueOf(main.getName())) {
                 case 1:
-                    empChoose = empList[0];
-                    idChoose = idList[0];
-                    TotalhoursChoose = TotalhoursList[0];
-                    rateChoose = rateList[0];
+                    empChoose = G1.empList[0];
+                    idChoose = G1.idList[0];
+                    TotalhoursChoose = G1.TotalhoursList[0];
+                    rateChoose = G1.rateList[0];
 
                     break;
                 case 2:
-                    empChoose = empList[1];
-                    idChoose = idList[1];
-                    TotalhoursChoose = TotalhoursList[1];
-                    rateChoose = rateList[1];
+                    empChoose = G1.empList[1];
+                    idChoose = G1.idList[1];
+                    TotalhoursChoose = G1.TotalhoursList[1];
+                    rateChoose = G1.rateList[1];
                     break;
                 case 3:
-                    empChoose = empList[2];
-                    idChoose = idList[2];
-                    TotalhoursChoose = TotalhoursList[2];
-                    rateChoose = rateList[2];
+                    empChoose = G1.empList[2];
+                    idChoose = G1.idList[2];
+                    TotalhoursChoose = G1.TotalhoursList[2];
+                    rateChoose = G1.rateList[2];
                     break;
                 case 4:
-                    empChoose = empList[3];
-                    idChoose = idList[3];
-                    TotalhoursChoose = TotalhoursList[3];
-                    rateChoose = rateList[3];
+                    empChoose = G1.empList[3];
+                    idChoose = G1.idList[3];
+                    TotalhoursChoose = G1.TotalhoursList[3];
+                    rateChoose = G1.rateList[3];
                     break;
                 case 5:
-                    empChoose = empList[4];
-                    idChoose = idList[4];
-                    TotalhoursChoose = TotalhoursList[4];
-                    rateChoose = rateList[4];
+                    empChoose = G1.empList[4];
+                    idChoose = G1.idList[4];
+                    TotalhoursChoose = G1.TotalhoursList[4];
+                    rateChoose = G1.rateList[4];
                     break;
                 default:
                     break;
@@ -126,6 +120,14 @@ public class HourlyEmployee {
     static String computeSalary(double totalHoursWorked, double ratePerHour) {
         double total = totalHoursWorked * ratePerHour * initial_salary;
         return String.valueOf(total);
+    }
+
+    
+    public static void TestingMain() {
+
+        for (int i = 1; i <= G1.empList.length; i++) {
+            out.println(i + ". " + G1.empList[i - 1]);
+        }
     }
 
 }

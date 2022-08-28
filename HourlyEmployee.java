@@ -13,6 +13,10 @@ public class HourlyEmployee extends Employee{
     static double initial_salary;
 
     private String employee;
+
+    public void animalSound() {
+        System.out.println("The animal makes a sound");
+    }
  
 
     

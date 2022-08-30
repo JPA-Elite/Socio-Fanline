@@ -255,7 +255,7 @@ public class EmployeeRoster extends Employee {
             int removeIndex = Integer.parseInt(inputted5);
             for (int i = removeIndex; i < (emptype - 1); i++) {
                 if (trans == 1) {
-                    G1.empList[i] = G1.empList[i + 1];
+                    storeGroup1.[i] = G1.empList[i + 1];
 
                 } else if (trans == 2) {
                     G2.empList[i] = G2.empList[i + 1];

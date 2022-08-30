@@ -253,22 +253,21 @@ public class EmployeeRoster extends Employee {
 
         if (isAnumber(inputted5) && (Integer.parseInt(inputted5) <= emptype)) {
             int removeIndex = Integer.parseInt(inputted5);
-            for (int i = removeIndex; i < (emptype - 1); i++) {
-                if (trans == 1) {
-                    storeGroup1.[i] = G1.empList[i + 1];
 
-                } else if (trans == 2) {
-                    G2.empList[i] = G2.empList[i + 1];
+            if (trans == 1) {
+                storeGroup1.remove(removeIndex - 1);
 
-                } else if (trans == 2) {
-                    G3.empList[i] = G3.empList[i + 1];
+            } else if (trans == 2) {
+                storeGroup1.remove(removeIndex - 1);
 
-                } else if (trans == 2) {
-                    G4.empList[i] = G4.empList[i + 1];
+            } else if (trans == 2) {
+                storeGroup1.remove(removeIndex - 1);
 
-                }
+            } else if (trans == 2) {
+                storeGroup1.remove(removeIndex - 1);
 
             }
+
             displayHourlyEmployee();
 
         } else {

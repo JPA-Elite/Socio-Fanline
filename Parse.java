@@ -8,7 +8,7 @@ import static java.lang.System.out;
 //     }
 // }
 
-public class Example extends Employee{
+public class Parse extends Employee{
 
     static Employee main = new Employee();
 

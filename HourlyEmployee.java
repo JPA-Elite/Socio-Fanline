@@ -2,6 +2,7 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 public class HourlyEmployee extends Employee{
+    
     int empID;
     String empName;
     String totalHoursWorked;

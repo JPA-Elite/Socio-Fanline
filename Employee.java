@@ -3,6 +3,7 @@ public class Employee {
 
     // HourlyEmployees
     public class FirstGroup {
+        String name = "Hourly Employees";
         String[] empList = { "Joshua Algadipe", "Janrae Fagaragan",
                 "Jan Nino Baoc", "Mark Joseph Molina", "Juspher Balangyao" };
 
@@ -14,6 +15,7 @@ public class Employee {
 
     // CommisionEmployees
     public class SecondGroup {
+        String name = "Commision Employees";
         String[] empList = { "Joseph Tan", "Jovie Bendijo",
                 "Albert Cruz", "Rafael Mae Sanchez", "Rodrigo Martinez" };
 
@@ -24,6 +26,7 @@ public class Employee {
 
     // BasePlusCommisionEmployees
     public class ThirdGroup {
+        String name = "Base Plus Commision Employees";
         String[] empList = { "Mary grace Galan", "Mikey Ferrer",
                 "Jhon Vincent Arnaiz", "Lady ann Lebosada", "Christian Lance" };
 
@@ -34,6 +37,7 @@ public class Employee {
 
     // PieceWorkerEmployee
     public class FourthGroup {
+        String name = "PieceWorker Employees";
         String[] empList = { "Jei ann Bayer", "Cristopher Lawrence",
                 "Joseph Menoza", "Caspher Mae Ann", "Jaymar Sta.Ana" };
 

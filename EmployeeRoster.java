@@ -16,11 +16,14 @@ public class EmployeeRoster extends Employee {
     static Employee.SecondGroup G2 = employee.new SecondGroup();
     static Employee.ThirdGroup G3 = employee.new ThirdGroup();
     static Employee.FourthGroup G4 = employee.new FourthGroup();
-
     static ArrayList<String> storeGroup1 = new ArrayList<String>();
+    static ArrayList<Integer> storeGroup1_id = new ArrayList<Integer>();
     static ArrayList<String> storeGroup2 = new ArrayList<String>();
+    static ArrayList<Integer> storeGroup2_id = new ArrayList<Integer>();
     static ArrayList<String> storeGroup3 = new ArrayList<String>();
+    static ArrayList<Integer> storeGroup3_id = new ArrayList<Integer>();
     static ArrayList<String> storeGroup4 = new ArrayList<String>();
+    static ArrayList<Integer> storeGroup4_id = new ArrayList<Integer>();
     static ArrayList<String> storeTypesEmployees = new ArrayList<String>();
     String list_types;
     static Formatter form = new Formatter();
@@ -88,7 +91,7 @@ public class EmployeeRoster extends Employee {
                     displayEmployee();
                     break;
                 case 6:
-                    out.println("1. Add Employee\n2.Remove employee");
+                    out.println("1. Add Employee\n2. Remove employee");
                     String inputted2 = in.nextLine();
                     if (isAnumber(inputted2)) {
                         switch (Integer.parseInt(inputted2)) {
@@ -122,6 +125,7 @@ public class EmployeeRoster extends Employee {
     public static void Group1List() {
         for (int i = 0; i < G1.empList.length; i++) {
             storeGroup1.add(G1.empList[i]);
+            storeGroup1_id.add(G1.idList[i]);
         }
     }
 
@@ -164,15 +168,15 @@ public class EmployeeRoster extends Employee {
     }
 
     public static int countPeiceWorkerEmployee() {
-        return storeGroup2.size();
+        return storeGroup4.size();
     }
 
     public static int countCommissionEmployee() {
-        return storeGroup3.size();
+        return storeGroup2.size();
     }
 
     public static int countBasePlusCommissionEmployee() {
-        return storeGroup4.size();
+        return storeGroup3.size();
     }
     //
 
@@ -183,20 +187,20 @@ public class EmployeeRoster extends Employee {
     }
 
     public static void displayPeiceWorkerEmployee() {
+        for (int i = 0; i < storeGroup4.size(); i++) {
+            out.println((i + 1) + ". " + storeGroup4.get(i));
+        }
+    }
+
+    public static void displayCommissionEmployee() {
         for (int i = 0; i < storeGroup2.size(); i++) {
             out.println((i + 1) + ". " + storeGroup2.get(i));
         }
     }
 
-    public static void displayCommissionEmployee() {
+    public static void displayBasePlusCommissionEmployee() {
         for (int i = 0; i < storeGroup3.size(); i++) {
             out.println((i + 1) + ". " + storeGroup3.get(i));
-        }
-    }
-
-    public static void displayBasePlusCommissionEmployee() {
-        for (int i = 0; i < storeGroup4.size(); i++) {
-            out.println((i + 1) + ". " + storeGroup4.get(i));
         }
     }
 
@@ -220,11 +224,32 @@ public class EmployeeRoster extends Employee {
 
     }
 
-    public static Object addEmployee(int empID, String empName, String empType) {
-        return empID + " " + empName + " " + empType;
+    public static void addEmployee(int empID, String empName, String empType) {
+     
+        if (empType.equals(G1.name)) {
+            storeGroup1.add(empName);
+            storeGroup1_id.add(empID);
+            displayHourlyEmployee();
+        }
+        else if (empType.equals(G2.name)) {
+            storeGroup2.add(empName);
+            storeGroup2_id.add(empID);
+            displayCommissionEmployee();
+        }
+        else if (empType.equals(G3.name)) {
+            storeGroup3.add(empName);
+            storeGroup3_id.add(empID);
+            displayBasePlusCommissionEmployee();
+        }
+        else if (empType.equals(G4.name)) {
+            storeGroup4.add(empName);
+            storeGroup4_id.add(empID);
+            displayPeiceWorkerEmployee();
+        }
+
     }
 
-    public static Object computeTransaction(int trans) {
+    public static void computeTransaction(int trans) {
         int emptype = 0;
         switch (trans) {
             case 1:
@@ -256,24 +281,29 @@ public class EmployeeRoster extends Employee {
 
             if (trans == 1) {
                 storeGroup1.remove(removeIndex - 1);
-
-            } else if (trans == 2) {
-                storeGroup1.remove(removeIndex - 1);
-
-            } else if (trans == 2) {
-                storeGroup1.remove(removeIndex - 1);
-
-            } else if (trans == 2) {
-                storeGroup1.remove(removeIndex - 1);
+                displayHourlyEmployee();
 
             }
+            if (trans == 2) {
+                storeGroup2.remove(removeIndex - 1);
+                displayCommissionEmployee();
 
-            displayHourlyEmployee();
+            }
+            if (trans == 3) {
+                storeGroup3.remove(removeIndex - 1);
+                displayBasePlusCommissionEmployee();
+
+            }
+            if (trans == 4) {
+                storeGroup4.remove(removeIndex - 1);
+                displayPeiceWorkerEmployee();
+
+            }
 
         } else {
             out.println("Invalid type occurred!");
         }
-        return 0;
+
     }
 
     public static void typeofTransaction(String type_transc) {
@@ -315,8 +345,8 @@ public class EmployeeRoster extends Employee {
                 out.println("Invalid type occurred!");
             }
             out.println("The new Id of the employee is " + randomNum);
+            addEmployee(randomNum, empName, empType);
 
-            out.println("result:\n" + addEmployee(randomNum, empName, empType));
         } else if (type_transc.equals("-1")) {
             out.println(String.format("%s", store));
             out.println("Choose type: ");

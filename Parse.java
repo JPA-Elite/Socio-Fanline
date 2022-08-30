@@ -35,7 +35,7 @@ public class Parse extends Employee {
         // We cannot alter the size of an array , after the removal, the last and second
         // last element in the array will exist twice
         System.out.println("After removing the second element: " + Arrays.toString(my_array));
-
+ 
     }
 
 }

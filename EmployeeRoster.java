@@ -207,17 +207,17 @@ public class EmployeeRoster extends Employee {
     public static void displayEmployee() {
 
         form.format("%40s %40s %40s\n", "Employee Id", "Employee Name", "Employee Type");
-        for (int i = 0; i < G1.empList.length; i++) {
-            form.format("%40s %40s %40s\n", G1.idList[i], G1.empList[i], G1.name);
+        for (int i = 0; i < storeGroup1.size(); i++) {
+            form.format("%40s %40s %40s\n", storeGroup1_id[i], storeGroup1[i], G1.name);
         }
-        for (int i = 0; i < G2.empList.length; i++) {
-            form.format("%40s %40ss %40s\n", G2.idList[i], G2.empList[i], G2.name);
+        for (int i = 0; i < storeGroup2.size(); i++) {
+            form.format("%40s %40ss %40s\n", storeGroup2_id[i], storeGroup2[i], G2.name);
         }
-        for (int i = 0; i < G3.empList.length; i++) {
-            form.format("%40s %40s %45s\n", G3.idList[i], G3.empList[i], G3.name);
+        for (int i = 0; i < storeGroup3.size(); i++) {
+            form.format("%40s %40s %45s\n",  storeGroup3_id[i], storeGroup3[i], G3.name);
         }
-        for (int i = 0; i < G4.empList.length; i++) {
-            form.format("%40s %40s %40s\n", G4.idList[i], G4.empList[i], G4.name);
+        for (int i = 0; i < storeGroup4.size(); i++) {
+            form.format("%40s %40s %40s\n",storeGroup4_id[i], storeGroup4[i], G4.name);
         }
         out.println(form);
         form.close();

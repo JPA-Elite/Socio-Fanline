@@ -208,16 +208,16 @@ public class EmployeeRoster extends Employee {
 
         form.format("%40s %40s %40s\n", "Employee Id", "Employee Name", "Employee Type");
         for (int i = 0; i < storeGroup1.size(); i++) {
-            form.format("%40s %40s %40s\n", storeGroup1_id[i], storeGroup1[i], G1.name);
+            form.format("%40s %40s %40s\n", storeGroup1_id.get(i), storeGroup1.get(i), G1.name);
         }
         for (int i = 0; i < storeGroup2.size(); i++) {
-            form.format("%40s %40ss %40s\n", storeGroup2_id[i], storeGroup2[i], G2.name);
+            form.format("%40s %40ss %40s\n", storeGroup2_i.get(i), storeGroup2.get(i), G2.name);
         }
         for (int i = 0; i < storeGroup3.size(); i++) {
-            form.format("%40s %40s %45s\n",  storeGroup3_id[i], storeGroup3[i], G3.name);
+            form.format("%40s %40s %45s\n",  storeGroup3_id.get(i), storeGroup3.get(i), G3.name);
         }
         for (int i = 0; i < storeGroup4.size(); i++) {
-            form.format("%40s %40s %40s\n",storeGroup4_id[i], storeGroup4[i], G4.name);
+            form.format("%40s %40s %40s\n",storeGroup4_id.get(i), storeGroup4.get(i), G4.name);
         }
         out.println(form);
         form.close();

@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import static java.lang.System.out;
 import java.util.Scanner;
 import java.util.Formatter;
@@ -26,7 +24,7 @@ public class EmployeeRoster extends Employee {
     static ArrayList<Integer> storeGroup4_id = new ArrayList<Integer>();
     static ArrayList<String> storeTypesEmployees = new ArrayList<String>();
     String list_types;
-    static Formatter form = new Formatter();
+    // static Formatter form = new Formatter();
     static Random rand = new Random();
     static EmployeeRoster main = new EmployeeRoster();
     static Scanner in = new Scanner(System.in);
@@ -56,69 +54,73 @@ public class EmployeeRoster extends Employee {
         Group2List();
         Group3List();
         Group4List();
-        out.println(String.format("Types of Employees:\n%s\nSelect option: ", main.list_types));
-        String inputted = in.nextLine();
+        while (true) {
 
-        if (isAnumber(inputted)) {
-            switch (Integer.parseInt(inputted)) {
-                case 1:
-                    out.println("Hourly Employees\n");
-                    out.println(String.format("Total no. of employees: %s", countHourlyEmployee()));
-                    out.println(String.format("List of employees: "));
-                    displayHourlyEmployee();
+            out.println(String.format("\nTypes of Employees:\n%s\nSelect option: ", main.list_types));
+            String inputted = in.nextLine();
 
-                    break;
-                case 2:
-                    out.println("Piece Worker Employees\n");
-                    out.println(String.format("Total no. of employees: %s", countPeiceWorkerEmployee()));
-                    out.println(String.format("List of employees: "));
-                    displayPeiceWorkerEmployee();
-                    break;
-                case 3:
-                    out.println("Commission Employees\n");
-                    out.println(String.format("Total no. of employees: %s", countCommissionEmployee()));
-                    out.println(String.format("List of employees: "));
-                    displayCommissionEmployee();
-                    break;
-                case 4:
-                    out.println("Base-Plus Commission Employees\n");
-                    out.println(String.format("Total no. of employees: %s", countBasePlusCommissionEmployee()));
-                    out.println(String.format("List of employees: "));
-                    displayBasePlusCommissionEmployee();
-                    break;
-                case 5:
-                    form.format("%86s", "-----All Employees-----\n\n");
-                    displayEmployee();
-                    break;
-                case 6:
-                    out.println("1. Add Employee\n2. Remove employee");
-                    String inputted2 = in.nextLine();
-                    if (isAnumber(inputted2)) {
-                        switch (Integer.parseInt(inputted2)) {
-                            case 1:
-                                typeofTransaction("+1");
-                                break;
-                            case 2:
-                                typeofTransaction("-1");
-                                break;
-                            default:
-                                break;
+            if (isAnumber(inputted)) {
+                switch (Integer.parseInt(inputted)) {
+                    case 1:
+                        out.println("-----Hourly Employees-----\n");
+                        out.println(String.format("Total no. of employees: %s", countHourlyEmployee()));
+                        out.println(String.format("List of employees: "));
+                        displayHourlyEmployee();
+
+                        break;
+                    case 4:
+                        out.println("-----Piece Worker Employees-----\n");
+                        out.println(String.format("Total no. of employees: %s", countPeiceWorkerEmployee()));
+                        out.println(String.format("List of employees: "));
+                        displayPeiceWorkerEmployee();
+                        break;
+                    case 2:
+                        out.println("-----Commission Employees-----\n");
+                        out.println(String.format("Total no. of employees: %s", countCommissionEmployee()));
+                        out.println(String.format("List of employees: "));
+                        displayCommissionEmployee();
+                        break;
+                    case 3:
+                        out.println("-----Base-Plus Commission Employees-----\n");
+                        out.println(String.format("Total no. of employees: %s", countBasePlusCommissionEmployee()));
+                        out.println(String.format("List of employees: "));
+                        displayBasePlusCommissionEmployee();
+                        break;
+                    case 5:
+                        displayEmployee();
+                        break;
+                    case 6:
+                        out.println("1. Add Employee\n2. Remove employee");
+                        String inputted2 = in.nextLine();
+                        if (isAnumber(inputted2)) {
+                            switch (Integer.parseInt(inputted2)) {
+                                case 1:
+                                    typeofTransaction("+1");
+                                    break;
+                                case 2:
+                                    typeofTransaction("-1");
+                                    break;
+                                default:
+                                    break;
+                            }
+                        } else {
+                            out.println("Invalid type occurred!");
                         }
-                    } else {
-                        out.println("Invalid type occurred!");
-                    }
 
-                    break;
+                        break;
 
-                default:
-                    out.println("Incorrect number selected!");
-                    break;
+                    default:
+                        out.println("Incorrect number selected!");
+                        break;
+                }
+
+            } else {
+                out.println("Invalid type occurred!");
+
             }
-
-        } else {
-            out.println("Invalid type occurred!");
-
         }
+
+        
 
     }
 
@@ -132,18 +134,21 @@ public class EmployeeRoster extends Employee {
     public static void Group2List() {
         for (int i = 0; i < G2.empList.length; i++) {
             storeGroup2.add(G2.empList[i]);
+            storeGroup2_id.add(G2.idList[i]);
         }
     }
 
     public static void Group3List() {
         for (int i = 0; i < G3.empList.length; i++) {
             storeGroup3.add(G3.empList[i]);
+            storeGroup3_id.add(G3.idList[i]);
         }
     }
 
     public static void Group4List() {
         for (int i = 0; i < G4.empList.length; i++) {
             storeGroup4.add(G4.empList[i]);
+            storeGroup4_id.add(G4.idList[i]);
         }
     }
 
@@ -205,43 +210,55 @@ public class EmployeeRoster extends Employee {
     }
 
     public static void displayEmployee() {
-
+        Formatter form = new Formatter();
+        form.format("%86s", "-----All Employees-----\n\n");
         form.format("%40s %40s %40s\n", "Employee Id", "Employee Name", "Employee Type");
         for (int i = 0; i < storeGroup1.size(); i++) {
-            form.format("%40s %40s %40s\n", storeGroup1_id.get(i), storeGroup1.get(i), G1.name);
+            try {
+                form.format("%40s %40s %40s\n", storeGroup1_id.get(i), storeGroup1.get(i), G1.name);
+            } catch (Exception e) {
+            }
         }
         for (int i = 0; i < storeGroup2.size(); i++) {
-            form.format("%40s %40ss %40s\n", storeGroup2_i.get(i), storeGroup2.get(i), G2.name);
+            try {
+                form.format("%40s %40ss %40s\n", storeGroup2_id.get(i), storeGroup2.get(i), G2.name);
+            } catch (Exception e) {
+
+            }
+
         }
         for (int i = 0; i < storeGroup3.size(); i++) {
-            form.format("%40s %40s %45s\n",  storeGroup3_id.get(i), storeGroup3.get(i), G3.name);
+            try {
+                form.format("%40s %40s %45s\n", storeGroup3_id.get(i), storeGroup3.get(i), G3.name);
+            } catch (Exception e) {
+            }
         }
         for (int i = 0; i < storeGroup4.size(); i++) {
-            form.format("%40s %40s %40s\n",storeGroup4_id.get(i), storeGroup4.get(i), G4.name);
+            try {
+                form.format("%40s %40s %40s\n", storeGroup4_id.get(i), storeGroup4.get(i), G4.name);
+            } catch (Exception e) {
+            }
+
         }
         out.println(form);
-        form.close();
 
     }
 
     public static void addEmployee(int empID, String empName, String empType) {
-     
+
         if (empType.equals(G1.name)) {
             storeGroup1.add(empName);
             storeGroup1_id.add(empID);
             displayHourlyEmployee();
-        }
-        else if (empType.equals(G2.name)) {
+        } else if (empType.equals(G2.name)) {
             storeGroup2.add(empName);
             storeGroup2_id.add(empID);
             displayCommissionEmployee();
-        }
-        else if (empType.equals(G3.name)) {
+        } else if (empType.equals(G3.name)) {
             storeGroup3.add(empName);
             storeGroup3_id.add(empID);
             displayBasePlusCommissionEmployee();
-        }
-        else if (empType.equals(G4.name)) {
+        } else if (empType.equals(G4.name)) {
             storeGroup4.add(empName);
             storeGroup4_id.add(empID);
             displayPeiceWorkerEmployee();

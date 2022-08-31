@@ -21,21 +21,27 @@ public class Parse extends Employee {
 
         // Hello.ahem inner = outer.new ahem();
         // out.println(inner.b);
+        parent obj1 = new child();
+        obj1.Maya();
 
-        int[] my_array = { 25, 14, 56, 15, 36, 56, 77, 18, 29, 49 };
 
-        System.out.println("Original Array : " + Arrays.toString(my_array));
+       
 
-        // Remove the second element (index->1, value->14) of the array
-        int removeIndex = 1;
-
-        for (int i = removeIndex; i < my_array.length - 1; i++) {
-            my_array[i] = my_array[i + 1];
-        }
-        // We cannot alter the size of an array , after the removal, the last and second
-        // last element in the array will exist twice
-        System.out.println("After removing the second element: " + Arrays.toString(my_array));
- 
     }
 
+   
+
+}
+
+class parent {
+    void Maya(){
+        out.println("hello");
+    }
+}
+
+class child extends parent {
+    
+    public void Maya(){
+        out.println("hello world");
+    }
 }

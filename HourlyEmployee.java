@@ -1,9 +1,22 @@
 import java.util.Scanner;
 import static java.lang.System.out;
 
-public class HourlyEmployee extends Employee {
+class HourlyEmployee_sub1 {
+    public String toString() {
+        String b = "hello world";
+        return b;
+    }
+}
+class HourlyEmployee_sub2 extends HourlyEmployee_sub1 {
+    @Override
+    public String toString() {
+        String b = "hello world";
+        return b;
+    }
+}
 
-    int empID;
+public class HourlyEmployee extends Employee {
+    
     String empName;
     String totalHoursWorked;
     String ratePerHour;
@@ -12,13 +25,7 @@ public class HourlyEmployee extends Employee {
     static double TotalhoursChoose;
     static double rateChoose;
     static double initial_salary;
-
     private String employee;
-
-    public void animalSound() {
-        System.out.println("The animal makes a sound");
-    }
-
     static Employee main2 = new Employee();
     static Employee.FirstGroup G1 = main2.new FirstGroup();
 
@@ -45,12 +52,20 @@ public class HourlyEmployee extends Employee {
         newTotalHours = Double.valueOf(totalHoursWorked);
         ratePerHour = Double.valueOf(ratePerHour);
     }
-
+  
+    public String toString() {
+        String b = "hello";
+        return b;
+    }
     public static void main(String[] args) {
 
         HourlyEmployee main = new HourlyEmployee();
         initial_salary = 250;
         Scanner obj = new Scanner(System.in);
+
+        // a ob = new HourlyEmployee();
+        // out.println(ob.toString());
+       
 
         do {
             out.println("\nSelect employee: ");
@@ -107,8 +122,6 @@ public class HourlyEmployee extends Employee {
         while (true);
 
     }
-
-
 
     static String displayInfo(int empID, String empName, double totalHoursWorked, double ratePerHour) {
 

@@ -47,6 +47,8 @@ public class Employee {
         double[] totalPiecesFinished = { 324, 120, 87, 45, 101 };
         double[] TotalSalesList = { 13499, 42870, 113457, 10700, 5200 };
     }
+
+    
     
    
 

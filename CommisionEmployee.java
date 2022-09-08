@@ -1,18 +1,13 @@
 import java.util.Scanner;
 import static java.lang.System.out;
 
-public class CommisionEmployee extends Employee{
+public class CommisionEmployee extends Employee {
     static int empID;
     static String empName;
     static double totalSales;
-
+    static String computed;
     static Employee main2 = new Employee();
     static Employee.SecondGroup G2 = main2.new SecondGroup();
-    
-
-    
-    
-
 
     // Getter
     public String getName() {
@@ -35,84 +30,94 @@ public class CommisionEmployee extends Employee{
         TestingMain();
     }
 
-
     public static void main(String[] args) {
-    
+
         Scanner obj = new Scanner(System.in);
         CommisionEmployee main = new CommisionEmployee();
 
-        out.println("\nSelect employee: ");
-        String input = obj.nextLine();
-        
-        main.setName(input);
+        do {
+            out.println("\nSelect employee(exit): ");
+            String input = obj.nextLine();
 
-        if (Integer.valueOf(main.getName()) <= G2.empList.length) {
-            switch(Integer.valueOf(main.getName())){
-                case 1:
-                    empName = G2.empList[0];
-                    empID = G2.idList[0];
-                    totalSales = G2.TotalSalesList[0];
-                    break;
-                case 2:
-                    empName = G2.empList[1];
-                    empID = G2.idList[1];
-                    totalSales = G2.TotalSalesList[1];
-                    break;
-                case 3:
-                    empName = G2.empList[2];
-                    empID = G2.idList[2];
-                    totalSales = G2.TotalSalesList[2];
-                    break;
-                case 4:
-                    empName = G2.empList[3];
-                    empID = G2.idList[3];
-                    totalSales = G2.TotalSalesList[3];
-                    break;
-                case 5:
-                    empName = G2.empList[4];
-                    empID = G2.idList[4];
-                    totalSales = G2.TotalSalesList[4];
-                    break;
-                default:
-                    break;
+            main.setName(input);
+            try {
+                if (main.getName().equals("exit")) {
+                    System.exit(0);
+                } else if (Integer.valueOf(main.getName()) <= G2.empList.length) {
+                    switch (Integer.valueOf(main.getName())) {
+                        case 1:
+                            empName = G2.empList[0];
+                            empID = G2.idList[0];
+                            totalSales = G2.TotalSalesList[0];
+                            break;
+                        case 2:
+                            empName = G2.empList[1];
+                            empID = G2.idList[1];
+                            totalSales = G2.TotalSalesList[1];
+                            break;
+                        case 3:
+                            empName = G2.empList[2];
+                            empID = G2.idList[2];
+                            totalSales = G2.TotalSalesList[2];
+                            break;
+                        case 4:
+                            empName = G2.empList[3];
+                            empID = G2.idList[3];
+                            totalSales = G2.TotalSalesList[3];
+                            break;
+                        case 5:
+                            empName = G2.empList[4];
+                            empID = G2.idList[4];
+                            totalSales = G2.TotalSalesList[4];
+                            break;
+                        default:
+                            break;
+                    }
+                    main.displayInfo(empID, empName, totalSales);
+                    out.println("Click \'okay\' to show information.");
+                    String input2 = obj.nextLine();
+                    if (input2.equals("okay")) {
+                        String compute = computeSalary(totalSales);
+                        computed = compute;
+                        out.println(main.toString());
+                    }
+                    else {
+                        out.println("Number chosen is invalid!");
+                    }
+
+                } else {
+                    out.println("Number chosen is invalid!");
+                }
+
+            } catch (NumberFormatException e) {
+                out.println("Invalid type occurred!");
             }
-        }else {
-            out.println("Invalid type occurred!");
-        }
-
-        displayInfo(empID, empName, totalSales);
-        out.println("Click \'okay\' to show salary.");
-        String input2 = obj.nextLine();
-        String compute = (input2.equals("okay")) ? computeSalary(totalSales)
-                    : "Invalid type occurred";
-        out.println("Total salary: Php." + compute);
-    
-        
-
-        
+        } while (true);
 
     }
 
-    static void displayInfo(int empID, String empName, double totalSales) {
-        out.println("Employee Name: " + empName);
-        out.println("Employee ID: " + empID);
-        out.println("Total Sales: Php." + totalSales);
-     
+    public String toString() {
+        return "\n" + displayInfo(empID, empName, totalSales) + "\nTotal salary: Php."
+                + computed;
+
+    }
+
+    public Object displayInfo(int empID, String empName, double totalSales) {
+        String Result = "Employee Name: " + empName + "\nEmployee ID: " + empID +
+                "\nTotal Sales: Php." + totalSales;
+        return Result;
 
     }
 
     static String computeSalary(double totalSales) {
         double result = 0;
-        if (totalSales <= 10000){
+        if (totalSales <= 10000) {
             result = totalSales * 0.05;
-        }
-        else if (totalSales > 10000 && totalSales < 50000){
+        } else if (totalSales > 10000 && totalSales < 50000) {
             result = totalSales * 0.10;
-        }
-        else if (totalSales > 50000 && totalSales < 100000){
+        } else if (totalSales > 50000 && totalSales < 100000) {
             result = totalSales * 0.15;
-        }
-        else if (totalSales > 100000){
+        } else if (totalSales > 100000) {
             result = totalSales * 0.30;
         }
         return String.valueOf(result);

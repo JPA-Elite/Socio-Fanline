@@ -12,7 +12,7 @@ public class Employee {
         int[] idList = { 21103808, 323456743, 12343276, 98345623, 23467865 };
 
         double[] TotalhoursList = { 23, 20, 20, 19, 23 };
-        double[] rateList = { 0.90, 0.80, 0.70, 0.75, 0.89 };
+        double[] rateList = { 200, 200, 200, 200, 200 };
     }
 
     // CommisionEmployees
@@ -47,16 +47,5 @@ public class Employee {
         double[] totalPiecesFinished = { 324, 120, 87, 45, 101 };
         double[] TotalSalesList = { 13499, 42870, 113457, 10700, 5200 };
     }
-
-    
-    
-   
-
-
-
-    public static void main(String[] args) {
-
-    }
-
     
 }

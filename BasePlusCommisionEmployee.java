@@ -97,13 +97,6 @@ public class BasePlusCommisionEmployee extends Employee{
         String compute = (input3.equals("okay")) ? computeSalary(totalSales, baseSalary)
                     : "Invalid type occurred";
         out.println("Total salary: Php." + compute);
-
-        
-    
-      
-
-        
-
     }
 
     static void displayInfo(int empID, String empName, double totalSales, double baseSalary) {
@@ -111,8 +104,6 @@ public class BasePlusCommisionEmployee extends Employee{
         out.println("Employee ID: " + empID);
         out.println("Total Sales: Php." + totalSales);
         out.println("Base salary: Php." + baseSalary);
-     
-
     }
 
     static String computeSalary(double totalSales, double baseSalary) {
@@ -131,7 +122,6 @@ public class BasePlusCommisionEmployee extends Employee{
         }
         return String.valueOf(result);
     }
-
 
     private static boolean isAnumber(String text){
         

@@ -54,10 +54,9 @@ public class HourlyEmployee extends Employee {
             main.setName(input);
 
             try {
-                if (main.getName().equals("exit")){
+                if (main.getName().equals("exit")) {
                     System.exit(0);
-                }
-                else if (Integer.valueOf(main.getName()) <= G1.empList.length) {
+                } else if (Integer.valueOf(main.getName()) <= G1.empList.length) {
                     switch (Integer.valueOf(main.getName())) {
                         case 1:
                             empChoose = G1.empList[0];
@@ -94,15 +93,19 @@ public class HourlyEmployee extends Employee {
                             break;
 
                     }
-                    out.println("Click \'okay\' to show information.");
-                    String input2 = obj.nextLine();
-                    if (input2.equals("okay")) {
-                        String compute = computeSalary(TotalhoursChoose, rateChoose).toString();
-                        computed = compute;
-                        out.println(main.toString());
-                    } else {
-                        out.println("Invalid type occurred!");
+                    while (true) {
+                        out.println("Click \'okay\' to show information.");
+                        String input2 = obj.nextLine();
+                        if (input2.equals("okay")) {
+                            String compute = computeSalary(TotalhoursChoose, rateChoose).toString();
+                            computed = compute;
+                            out.println(main.toString());
+                            break;
+                        } else {
+                            out.println("Invalid type occurred!");
+                        }
                     }
+
                 } else {
                     out.println("Number chosen is invalid!");
                 }
@@ -137,7 +140,6 @@ public class HourlyEmployee extends Employee {
     public String toString() {
         return "\n" + displayInfo(idChoose, empChoose, TotalhoursChoose, rateChoose) + "\nTotal salary: Php."
                 + computed;
-
     }
 
     public static void TestingMain() {

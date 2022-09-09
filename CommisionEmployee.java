@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 import static java.lang.System.out;
 
 public class CommisionEmployee extends Employee {
@@ -20,7 +20,7 @@ public class CommisionEmployee extends Employee {
     }
 
     public static void TestingMain() {
-
+        // Connected to arrays in Employee.java
         for (int i = 1; i <= G2.empList.length; i++) {
             out.println(i + ". " + G2.empList[i - 1]);
         }
@@ -73,16 +73,18 @@ public class CommisionEmployee extends Employee {
                         default:
                             break;
                     }
-                    main.displayInfo(empID, empName, totalSales);
-                    out.println("Click \'okay\' to show information.");
-                    String input2 = obj.nextLine();
-                    if (input2.equals("okay")) {
-                        String compute = computeSalary(totalSales);
-                        computed = compute;
-                        out.println(main.toString());
-                    }
-                    else {
-                        out.println("Number chosen is invalid!");
+                    while (true) {
+                        main.displayInfo(empID, empName, totalSales);
+                        out.println("Click \'okay\' to show information.");
+                        String input2 = obj.nextLine();
+                        if (input2.equals("okay")) {
+                            String compute = computeSalary(totalSales);
+                            computed = compute;
+                            out.println(main.toString());
+                            break;
+                        } else {
+                            out.println("Invalid type occurred!");
+                        }
                     }
 
                 } else {

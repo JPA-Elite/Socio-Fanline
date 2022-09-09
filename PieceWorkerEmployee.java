@@ -1,8 +1,7 @@
-import java.util.Scanner;
+import java.util.*;
 import static java.lang.System.out;
 
-
-public class PieceWorkerEmployee extends Employee{
+public class PieceWorkerEmployee extends Employee {
     static int empID;
     static String empName;
     static double PieceChoice;
@@ -35,27 +34,23 @@ public class PieceWorkerEmployee extends Employee{
         String input_store;
         Scanner obj = new Scanner(System.in);
         PieceWorkerEmployee main = new PieceWorkerEmployee();
-        
 
-      
         out.println("Select employee: ");
         while (true) {
             String input = obj.nextLine();
             if (isAnumber(input)) {
                 input_store = input;
                 break;
-            }
-            else {
+            } else {
                 out.println("type number only!");
                 continue;
             }
         }
 
-        
         main.setName(input_store);
 
         if (Integer.valueOf(main.getName()) <= G4.empList.length) {
-            switch(Integer.valueOf(main.getName())){
+            switch (Integer.valueOf(main.getName())) {
                 case 1:
                     empName = G4.empList[0];
                     empID = G4.idList[0];
@@ -84,41 +79,34 @@ public class PieceWorkerEmployee extends Employee{
                 default:
                     break;
             }
-        }else {
+        } else {
             out.println("Invalid type occurred!");
         }
 
         displayInfo(empID, empName, PieceChoice);
         out.println("Click \'okay\' to show salary + the rate per piece.\n(ex: okay 100)");
-        while (true){
+        while (true) {
             try {
                 String[] input3 = obj.nextLine().split(" ");
                 if (input3.length >= 3) {
                     out.println("Format is invalid!");
-                }
-                else {
-    
+                } else {
+
                     if (input3[0].equals("okay") && isAnumber(input3[1])) {
                         ratePerPiece = Double.parseDouble(input3[1]);
                         String computed = computeSalary(PieceChoice, ratePerPiece);
                         out.println("Total salary: Php." + computed);
                         break;
-                    }
-                    else {
+                    } else {
                         out.println("Invalid type occurred");
                     }
-        
-    
-                    
+
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 out.println("Format is invalid!");
             }
-            
-            
+
         }
-        
 
     }
 

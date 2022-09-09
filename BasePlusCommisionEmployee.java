@@ -10,23 +10,6 @@ public class BasePlusCommisionEmployee extends Employee {
     static Employee main2 = new Employee();
     static Employee.ThirdGroup G3 = main2.new ThirdGroup();
 
-    // Getter
-    public String getName() {
-        return empName;
-    }
-
-    // Setter
-    public void setName(String empNew) {
-        BasePlusCommisionEmployee.empName = empNew;
-    }
-
-    public static void TestingMain() {
-        // Connected to arrays in Employee.java
-        for (int i = 1; i <= G3.empList.length; i++) {
-            out.println(i + ". " + G3.empList[i - 1]);
-        }
-    }
-
     public BasePlusCommisionEmployee() {
         TestingMain();
     }
@@ -112,6 +95,23 @@ public class BasePlusCommisionEmployee extends Employee {
 
         } while (true);
 
+    }
+
+    // Getter
+    public String getName() {
+        return empName;
+    }
+
+    // Setter
+    public void setName(String empNew) {
+        BasePlusCommisionEmployee.empName = empNew;
+    }
+
+    public static void TestingMain() {
+        // Connected to arrays in Employee.java
+        for (int i = 1; i <= G3.empList.length; i++) {
+            out.println(i + ". " + G3.empList[i - 1]);
+        }
     }
 
     static String computeSalary(double totalSales, double baseSalary) {

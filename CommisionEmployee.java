@@ -9,23 +9,6 @@ public class CommisionEmployee extends Employee {
     static Employee main2 = new Employee();
     static Employee.SecondGroup G2 = main2.new SecondGroup();
 
-    // Getter
-    public String getName() {
-        return empName;
-    }
-
-    // Setter
-    public void setName(String empNew) {
-        CommisionEmployee.empName = empNew;
-    }
-
-    public static void TestingMain() {
-        // Connected to arrays in Employee.java
-        for (int i = 1; i <= G2.empList.length; i++) {
-            out.println(i + ". " + G2.empList[i - 1]);
-        }
-    }
-
     public CommisionEmployee() {
         TestingMain();
     }
@@ -96,6 +79,23 @@ public class CommisionEmployee extends Employee {
             }
         } while (true);
 
+    }
+
+    // Getter
+    public String getName() {
+        return empName;
+    }
+
+    // Setter
+    public void setName(String empNew) {
+        CommisionEmployee.empName = empNew;
+    }
+
+    public static void TestingMain() {
+        // Connected to arrays in Employee.java
+        for (int i = 1; i <= G2.empList.length; i++) {
+            out.println(i + ". " + G2.empList[i - 1]);
+        }
     }
 
     public String toString() {

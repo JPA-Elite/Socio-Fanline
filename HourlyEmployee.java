@@ -15,16 +15,6 @@ public class HourlyEmployee extends Employee {
     static Employee main2 = new Employee();
     static Employee.FirstGroup G1 = main2.new FirstGroup();
 
-    // Getter
-    public String getName() {
-        return employee;
-    }
-
-    // Setter
-    public void setName(String empNew) {
-        this.employee = empNew;
-    }
-
     public HourlyEmployee() {
         TestingMain();
     }
@@ -116,6 +106,16 @@ public class HourlyEmployee extends Employee {
 
         } while (true);
 
+    }
+
+    // Getter
+    public String getName() {
+        return employee;
+    }
+
+    // Setter
+    public void setName(String empNew) {
+        this.employee = empNew;
     }
 
     public Object displayInfo(int empID, String empName, double totalHoursWorked, double ratePerHour) {

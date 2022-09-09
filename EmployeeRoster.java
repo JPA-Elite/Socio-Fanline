@@ -1,9 +1,5 @@
-import java.util.ArrayList;
+import java.util.*;
 import static java.lang.System.out;
-import java.util.Scanner;
-import java.util.Formatter;
-import java.util.Random;
-
 public class EmployeeRoster extends Employee {
     // static String[] EmployeeGroupList1 = { };
     // static String[] EmployeeGroupList2 = { };

@@ -6,8 +6,93 @@ public class PieceWorkerEmployee extends Employee {
     static String empName;
     static double PieceChoice;
     static double ratePerPiece = 0;
+    static String computed;
     static Employee main2 = new Employee();
     static Employee.FourthGroup G4 = main2.new FourthGroup();
+
+    public PieceWorkerEmployee() {
+        TestingMain();
+    }
+
+    public static void main(String[] args) {
+        String input_store;
+        Scanner obj = new Scanner(System.in);
+        PieceWorkerEmployee main = new PieceWorkerEmployee();
+        main: while (true) {
+            out.println("Select employee(exit): ");
+            while (true) {
+                String input = obj.nextLine();
+                if (isAnumber(input)) {
+                    input_store = input;
+                    break;
+                } else if (input.equals("exit")) {
+                    break main;
+                } else {
+                    out.println("type number only!");
+                    continue;
+                }
+            }
+            main.setName(input_store);
+            if (Integer.valueOf(main.getName()) <= G4.empList.length) {
+                switch (Integer.valueOf(main.getName())) {
+                    case 1:
+                        empName = G4.empList[0];
+                        empID = G4.idList[0];
+                        PieceChoice = G4.totalPiecesFinished[0];
+                        break;
+                    case 2:
+                        empName = G4.empList[1];
+                        empID = G4.idList[1];
+                        PieceChoice = G4.totalPiecesFinished[1];
+                        break;
+                    case 3:
+                        empName = G4.empList[2];
+                        empID = G4.idList[2];
+                        PieceChoice = G4.totalPiecesFinished[2];
+                        break;
+                    case 4:
+                        empName = G4.empList[3];
+                        empID = G4.idList[3];
+                        PieceChoice = G4.totalPiecesFinished[3];
+                        break;
+                    case 5:
+                        empName = G4.empList[4];
+                        empID = G4.idList[4];
+                        PieceChoice = G4.totalPiecesFinished[4];
+                        break;
+                    default:
+                        break;
+                }
+                main.displayInfo(empID, empName, PieceChoice);
+                while (true) {
+                    out.println("Click \'okay\' to show salary + the rate per piece.\n(ex: okay 100)");
+                    try {
+                        String[] input3 = obj.nextLine().split(" ");
+                        if (input3.length >= 3) {
+                            out.println("Format is invalid!");
+                        } else {
+                            if (input3[0].equals("okay") && isAnumber(input3[1])) {
+                                ratePerPiece = Double.parseDouble(input3[1]);
+                                computed = computeSalary(PieceChoice, ratePerPiece);
+                                out.println(main.toString());
+                                break;
+                            } else {
+                                out.println("Invalid type occurred");
+                            }
+
+                        }
+                    } catch (Exception e) {
+                        out.println("Format is invalid!");
+                    }
+
+                }
+            } else {
+                out.println("Number chosen is invalid!");
+            }
+
+        }
+
+    }
 
     // Getter
     public String getName() {
@@ -26,94 +111,15 @@ public class PieceWorkerEmployee extends Employee {
         }
     }
 
-    public PieceWorkerEmployee() {
-        TestingMain();
+    public String toString() {
+        return "\n" + displayInfo(empID, empName, PieceChoice) + "\nTotal salary: Php."
+                + computed;
     }
 
-    public static void main(String[] args) {
-        String input_store;
-        Scanner obj = new Scanner(System.in);
-        PieceWorkerEmployee main = new PieceWorkerEmployee();
-
-        out.println("Select employee: ");
-        while (true) {
-            String input = obj.nextLine();
-            if (isAnumber(input)) {
-                input_store = input;
-                break;
-            } else {
-                out.println("type number only!");
-                continue;
-            }
-        }
-
-        main.setName(input_store);
-
-        if (Integer.valueOf(main.getName()) <= G4.empList.length) {
-            switch (Integer.valueOf(main.getName())) {
-                case 1:
-                    empName = G4.empList[0];
-                    empID = G4.idList[0];
-                    PieceChoice = G4.totalPiecesFinished[0];
-                    break;
-                case 2:
-                    empName = G4.empList[1];
-                    empID = G4.idList[1];
-                    PieceChoice = G4.totalPiecesFinished[1];
-                    break;
-                case 3:
-                    empName = G4.empList[2];
-                    empID = G4.idList[2];
-                    PieceChoice = G4.totalPiecesFinished[2];
-                    break;
-                case 4:
-                    empName = G4.empList[3];
-                    empID = G4.idList[3];
-                    PieceChoice = G4.totalPiecesFinished[3];
-                    break;
-                case 5:
-                    empName = G4.empList[4];
-                    empID = G4.idList[4];
-                    PieceChoice = G4.totalPiecesFinished[4];
-                    break;
-                default:
-                    break;
-            }
-        } else {
-            out.println("Invalid type occurred!");
-        }
-
-        displayInfo(empID, empName, PieceChoice);
-        out.println("Click \'okay\' to show salary + the rate per piece.\n(ex: okay 100)");
-        while (true) {
-            try {
-                String[] input3 = obj.nextLine().split(" ");
-                if (input3.length >= 3) {
-                    out.println("Format is invalid!");
-                } else {
-
-                    if (input3[0].equals("okay") && isAnumber(input3[1])) {
-                        ratePerPiece = Double.parseDouble(input3[1]);
-                        String computed = computeSalary(PieceChoice, ratePerPiece);
-                        out.println("Total salary: Php." + computed);
-                        break;
-                    } else {
-                        out.println("Invalid type occurred");
-                    }
-
-                }
-            } catch (Exception e) {
-                out.println("Format is invalid!");
-            }
-
-        }
-
-    }
-
-    static void displayInfo(int empID, String empName, double PieceChoice) {
-        out.println("Employee Name: " + empName);
-        out.println("Employee ID: " + empID);
-        out.println("Total Piece Finished: " + Math.round(PieceChoice) + "pc/s");
+    public Object displayInfo(int empID, String empName, double PieceChoice) {
+        String Result = "Employee Name: " + empName + "\nEmployee ID: " + empID +
+                "\nTotal Piece Finished: " + Math.round(PieceChoice) + "pc/s";
+        return Result;
 
     }
 

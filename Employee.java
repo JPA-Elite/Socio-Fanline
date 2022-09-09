@@ -14,6 +14,7 @@ public class Employee {
     static Employee.SecondGroup G2 = main.new SecondGroup();
     static Employee.ThirdGroup G3 = main.new ThirdGroup();
     static Employee.FourthGroup G4 = main.new FourthGroup();
+    ArrayList<Object> compute_salary = new ArrayList<Object>();
 
     // HourlyEmployees
     public class FirstGroup {
@@ -56,8 +57,7 @@ public class Employee {
                 "Joseph Menoza", "Caspher Mae Ann", "Jaymar Sta.Ana" };
 
         int[] idList = { 21026113, 401252713, 05325215, 50246013, 12437515 };
-        double[] totalPiecesFinished = { 324, 120, 87, 45, 101 };
-        double[] TotalSalesList = { 13499, 42870, 113457, 10700, 5200 };
+        double[] totalPiecesFinished = { 240, 120, 87, 45, 101 };
     }
 
     // default constructor
@@ -68,53 +68,55 @@ public class Employee {
     // return null;
     // }
     public Employee(String group_Type) {
-        ArrayList<Object> compute_salary01 = new ArrayList<Object>();
-        ArrayList<Object> compute_salary02 = new ArrayList<Object>();
-        ArrayList<Object> compute_salary03 = new ArrayList<Object>();
-        ArrayList<Object> compute_salary04 = new ArrayList<Object>();
+
         if (group_Type.equals("1st")) {
             for (int i = 0; i < G1.TotalhoursList.length; i++) {
-                compute_salary01.add("Php." + HourlyEmployee.computeSalary(G1.TotalhoursList[i], G1.rateList[i]));
+                compute_salary.add("Php." + HourlyEmployee.computeSalary(G1.TotalhoursList[i], G1.rateList[i]));
             }
-            for (int i = 0; i < G2.TotalSalesList.length; i++) {
-                compute_salary02.add("Php." + CommisionEmployee.computeSalary(G2.TotalSalesList[i]));
-            }
-            for (int i = 0; i < G3.TotalSalesList.length; i++) {
-                compute_salary03.add("Php." + BasePlusCommisionEmployee.computeSalary(G3.TotalSalesList[i],
-                        BasePlusCommisionEmployee.baseSalary));
-            }
-            // for (int i = 0; i < G4.TotalSalesList.length; i++) {
-            // compute_salary04.add("Php." +
-            // CommisionEmployee.computeSalary(G2.TotalSalesList[i]));
-            // }
             out.println("Employee Name: " + Arrays.toString(G1.empList)
                     + "\nId: " + Arrays.toString(G1.idList)
                     + "\nType: " + G1.name + "\n"
-                    + "\nTotal Salaries: " + compute_salary01.toString() + "\n");
+                    + "\nTotal Salaries: " + compute_salary.toString() + "\n");
         } else if (group_Type.equals("2nd")) {
+            for (int i = 0; i < G2.TotalSalesList.length; i++) {
+                compute_salary.add("Php." + CommisionEmployee.computeSalary(G2.TotalSalesList[i]));
+            }
             out.println("Employee Name: " + Arrays.toString(G2.empList)
                     + "\nId: " + Arrays.toString(G2.idList)
                     + "\nType: " + G2.name + "\n"
-                    + "\nTotal Salaries: " + compute_salary02.toString() + "\n");
+                    + "\nTotal Salaries: " + compute_salary.toString() + "\n");
         } else if (group_Type.equals("3rd")) {
+            for (int i = 0; i < G3.TotalSalesList.length; i++) {
+                compute_salary.add("Php." + BasePlusCommisionEmployee.computeSalary(G3.TotalSalesList[i],
+                        BasePlusCommisionEmployee.baseSalary));
+            }
             out.println("Employee Name: " + Arrays.toString(G3.empList)
                     + "\nId: " + Arrays.toString(G3.idList)
                     + "\nType: " + G3.name + "\n"
-                    + "\nTotal Salaries: " + compute_salary03.toString() + "\n");
+                    + "\nTotal Salaries: " + compute_salary.toString() + "\n");
         } else if (group_Type.equals("4th")) {
+            for (int i = 0; i < G4.totalPiecesFinished.length; i++) {
+                compute_salary.add("Php." + PieceWorkerEmployee.computeSalary(G4.totalPiecesFinished[i],
+                        PieceWorkerEmployee.ratePerPiece));
+            }
             out.println("Employee Name: " + Arrays.toString(G4.empList)
                     + "\nId: " + Arrays.toString(G4.idList)
-                    + "\nType: " + G4.name + "\n");
+                    + "\nType: " + G4.name + "\n"
+                    + "\nTotal Salaries: " + compute_salary.toString() + "\n");
         }
     }
 
     public static void main(String[] args) throws Exception {
-        Employee[] main = new Employee[4];
+        Employee[] main2 = new Employee[4];
         out.println("---------------------------------List of Employees-------------------------------------\n");
-        main[0] = new Employee("1st");
-        main[1] = new Employee("2nd");
-        main[2] = new Employee("3rd");
-        main[3] = new Employee("4th");
+        main2[0] = new Employee("1st");
+        main.compute_salary.clear();
+        main2[1] = new Employee("2nd");
+        main.compute_salary.clear();
+        main2[2] = new Employee("3rd");
+        main.compute_salary.clear();
+        main2[3] = new Employee("4th");
+        main.compute_salary.clear();
     }
 
 }

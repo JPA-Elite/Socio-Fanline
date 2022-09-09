@@ -5,7 +5,7 @@ public class PieceWorkerEmployee extends Employee {
     static int empID;
     static String empName;
     static double PieceChoice;
-    static double ratePerPiece = 100;
+    static double ratePerPiece = 50;
     static String computed;
     static Employee main2 = new Employee();
     static Employee.FourthGroup G4 = main2.new FourthGroup();

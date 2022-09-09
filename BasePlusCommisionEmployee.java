@@ -5,7 +5,7 @@ public class BasePlusCommisionEmployee extends Employee {
     static int empID;
     static String empName;
     static double totalSales;
-    static double baseSalary;
+    static double baseSalary = 5000;
     static String computed;
     static Employee main2 = new Employee();
     static Employee.ThirdGroup G3 = main2.new ThirdGroup();
@@ -31,7 +31,6 @@ public class BasePlusCommisionEmployee extends Employee {
                     continue;
                 }
             }
-
             baseSalary = Double.parseDouble(input_store);
             while (true) {
                 out.println("Select employee(exit): ");

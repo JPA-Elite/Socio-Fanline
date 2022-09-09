@@ -1,4 +1,6 @@
 import static java.lang.System.out;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Employee {
@@ -66,24 +68,39 @@ public class Employee {
     // return null;
     // }
     public Employee(String group_Type) {
-        String[] compute_salary = {};
+        ArrayList<Object> compute_salary01 = new ArrayList<Object>();
+        ArrayList<Object> compute_salary02 = new ArrayList<Object>();
+        ArrayList<Object> compute_salary03 = new ArrayList<Object>();
+        ArrayList<Object> compute_salary04 = new ArrayList<Object>();
         if (group_Type.equals("1st")) {
-            for (int i = 0; i <= G1.TotalhoursList.length; i++) {
-                compute_salary[i] = HourlyEmployee.computeSalary(G1.TotalhoursList[i], G1.rateList[i]);
+            for (int i = 0; i < G1.TotalhoursList.length; i++) {
+                compute_salary01.add("Php." + HourlyEmployee.computeSalary(G1.TotalhoursList[i], G1.rateList[i]));
             }
-
+            for (int i = 0; i < G2.TotalSalesList.length; i++) {
+                compute_salary02.add("Php." + CommisionEmployee.computeSalary(G2.TotalSalesList[i]));
+            }
+            for (int i = 0; i < G3.TotalSalesList.length; i++) {
+                compute_salary03.add("Php." + BasePlusCommisionEmployee.computeSalary(G3.TotalSalesList[i],
+                        BasePlusCommisionEmployee.baseSalary));
+            }
+            // for (int i = 0; i < G4.TotalSalesList.length; i++) {
+            // compute_salary04.add("Php." +
+            // CommisionEmployee.computeSalary(G2.TotalSalesList[i]));
+            // }
             out.println("Employee Name: " + Arrays.toString(G1.empList)
                     + "\nId: " + Arrays.toString(G1.idList)
                     + "\nType: " + G1.name + "\n"
-                    + "\nTotal Salaries: " + compute_salary + "\n");
+                    + "\nTotal Salaries: " + compute_salary01.toString() + "\n");
         } else if (group_Type.equals("2nd")) {
             out.println("Employee Name: " + Arrays.toString(G2.empList)
                     + "\nId: " + Arrays.toString(G2.idList)
-                    + "\nType: " + G2.name + "\n");
+                    + "\nType: " + G2.name + "\n"
+                    + "\nTotal Salaries: " + compute_salary02.toString() + "\n");
         } else if (group_Type.equals("3rd")) {
             out.println("Employee Name: " + Arrays.toString(G3.empList)
                     + "\nId: " + Arrays.toString(G3.idList)
-                    + "\nType: " + G3.name + "\n");
+                    + "\nType: " + G3.name + "\n"
+                    + "\nTotal Salaries: " + compute_salary03.toString() + "\n");
         } else if (group_Type.equals("4th")) {
             out.println("Employee Name: " + Arrays.toString(G4.empList)
                     + "\nId: " + Arrays.toString(G4.idList)

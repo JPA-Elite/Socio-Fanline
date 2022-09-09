@@ -1,5 +1,18 @@
+import static java.lang.System.out;
+import java.util.Arrays;
 
 public class Employee {
+    // static HourlyEmployee hEmployee = new HourlyEmployee();
+    // static CommisionEmployee cEmployee = new CommisionEmployee();
+    // static BasePlusCommisionEmployee bEmployee = new BasePlusCommisionEmployee();
+    // static PieceWorkerEmployee pEmployee = new PieceWorkerEmployee();
+
+    static Employee main = new Employee();
+    static Employee.FirstGroup G1 = main.new FirstGroup();
+    static Employee.SecondGroup G2 = main.new SecondGroup();
+    static Employee.ThirdGroup G3 = main.new ThirdGroup();
+    static Employee.FourthGroup G4 = main.new FourthGroup();
+
     // HourlyEmployees
     public class FirstGroup {
         String name = "Hourly Employees";
@@ -44,7 +57,47 @@ public class Employee {
         double[] totalPiecesFinished = { 324, 120, 87, 45, 101 };
         double[] TotalSalesList = { 13499, 42870, 113457, 10700, 5200 };
     }
-    
 
-    
+    // default constructor
+    public Employee() {
+    }
+
+    // public String Extract_Computation(){
+    // return null;
+    // }
+    public Employee(String group_Type) {
+        String[] compute_salary = {};
+        if (group_Type.equals("1st")) {
+            for (int i = 0; i <= G1.TotalhoursList.length; i++) {
+                compute_salary[i] = HourlyEmployee.computeSalary(G1.TotalhoursList[i], G1.rateList[i]);
+            }
+
+            out.println("Employee Name: " + Arrays.toString(G1.empList)
+                    + "\nId: " + Arrays.toString(G1.idList)
+                    + "\nType: " + G1.name + "\n"
+                    + "\nTotal Salaries: " + compute_salary + "\n");
+        } else if (group_Type.equals("2nd")) {
+            out.println("Employee Name: " + Arrays.toString(G2.empList)
+                    + "\nId: " + Arrays.toString(G2.idList)
+                    + "\nType: " + G2.name + "\n");
+        } else if (group_Type.equals("3rd")) {
+            out.println("Employee Name: " + Arrays.toString(G3.empList)
+                    + "\nId: " + Arrays.toString(G3.idList)
+                    + "\nType: " + G3.name + "\n");
+        } else if (group_Type.equals("4th")) {
+            out.println("Employee Name: " + Arrays.toString(G4.empList)
+                    + "\nId: " + Arrays.toString(G4.idList)
+                    + "\nType: " + G4.name + "\n");
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        Employee[] main = new Employee[4];
+        out.println("---------------------------------List of Employees-------------------------------------\n");
+        main[0] = new Employee("1st");
+        main[1] = new Employee("2nd");
+        main[2] = new Employee("3rd");
+        main[3] = new Employee("4th");
+    }
+
 }

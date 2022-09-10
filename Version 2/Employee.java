@@ -64,45 +64,42 @@ public class Employee {
     public Employee() {
     }
 
-    // public String Extract_Computation(){
-    // return null;
-    // }
     public Employee(String group_Type) {
 
         if (group_Type.equals("1st")) {
             for (int i = 0; i < G1.TotalhoursList.length; i++) {
                 compute_salary.add("Php." + HourlyEmployee.computeSalary(G1.TotalhoursList[i], G1.rateList[i]));
             }
-            out.println("Employee Name: " + Arrays.toString(G1.empList)
+            out.println("Employees' Name: " + Arrays.toString(G1.empList)
                     + "\nId: " + Arrays.toString(G1.idList)
                     + "\nType: " + G1.name + "\n"
-                    + "\nTotal Salaries: " + compute_salary.toString() + "\n");
+                    + "Total Salaries: " + compute_salary.toString() + "\n");
         } else if (group_Type.equals("2nd")) {
             for (int i = 0; i < G2.TotalSalesList.length; i++) {
                 compute_salary.add("Php." + CommisionEmployee.computeSalary(G2.TotalSalesList[i]));
             }
-            out.println("Employee Name: " + Arrays.toString(G2.empList)
+            out.println("Employees' Name: " + Arrays.toString(G2.empList)
                     + "\nId: " + Arrays.toString(G2.idList)
                     + "\nType: " + G2.name + "\n"
-                    + "\nTotal Salaries: " + compute_salary.toString() + "\n");
+                    + "Total Salaries: " + compute_salary.toString() + "\n");
         } else if (group_Type.equals("3rd")) {
             for (int i = 0; i < G3.TotalSalesList.length; i++) {
                 compute_salary.add("Php." + BasePlusCommisionEmployee.computeSalary(G3.TotalSalesList[i],
                         BasePlusCommisionEmployee.baseSalary));
             }
-            out.println("Employee Name: " + Arrays.toString(G3.empList)
+            out.println("Employees' Name: " + Arrays.toString(G3.empList)
                     + "\nId: " + Arrays.toString(G3.idList)
                     + "\nType: " + G3.name + "\n"
-                    + "\nTotal Salaries: " + compute_salary.toString() + "\n");
+                    + "Total Salaries: " + compute_salary.toString() + "\n");
         } else if (group_Type.equals("4th")) {
             for (int i = 0; i < G4.totalPiecesFinished.length; i++) {
                 compute_salary.add("Php." + PieceWorkerEmployee.computeSalary(G4.totalPiecesFinished[i],
                         PieceWorkerEmployee.ratePerPiece));
             }
-            out.println("Employee Name: " + Arrays.toString(G4.empList)
+            out.println("Employees' Name: " + Arrays.toString(G4.empList)
                     + "\nId: " + Arrays.toString(G4.idList)
                     + "\nType: " + G4.name + "\n"
-                    + "\nTotal Salaries: " + compute_salary.toString() + "\n");
+                    + "Total Salaries: " + compute_salary.toString() + "\n");
         }
     }
 

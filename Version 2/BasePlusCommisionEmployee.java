@@ -9,14 +9,16 @@ public class BasePlusCommisionEmployee extends Employee {
     static String computed;
     static Employee main2 = new Employee();
     static Employee.ThirdGroup G3 = main2.new ThirdGroup();
+    static Scanner obj = new Scanner(System.in);
 
+    // Default constructor
     public BasePlusCommisionEmployee() {
         TestingMain();
     }
 
     public static void main(String[] args) {
         String input_store;
-        Scanner obj = new Scanner(System.in);
+
         BasePlusCommisionEmployee main = new BasePlusCommisionEmployee();
 
         do {
@@ -113,6 +115,7 @@ public class BasePlusCommisionEmployee extends Employee {
         }
     }
 
+    // compute employee's salary
     static String computeSalary(double totalSales, double baseSalary) {
         double result = 0;
         if (totalSales <= 10000) {
@@ -127,6 +130,7 @@ public class BasePlusCommisionEmployee extends Employee {
         return String.valueOf(result);
     }
 
+    // displays information
     public Object displayInfo(int empID, String empName, double totalSales, double baseSalary) {
         String Result = "Employee Name: " + empName + "\nEmployee ID: " + empID +
                 "\nTotal Sales: Php." + totalSales +
@@ -134,9 +138,7 @@ public class BasePlusCommisionEmployee extends Employee {
         return Result;
     }
 
-    // empName = G3.empList[2];
-    // empID = G3.idList[2];
-    // totalSales = G3.TotalSalesList[2];
+    // converts all information into a string
     public String toString() {
         return "\n" + displayInfo(empID, empName, totalSales, baseSalary) + "\nTotal salary: Php."
                 + computed;

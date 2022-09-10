@@ -1,10 +1,7 @@
 import java.util.*;
 import static java.lang.System.out;
+
 public class EmployeeRoster extends Employee {
-    // static String[] EmployeeGroupList1 = { };
-    // static String[] EmployeeGroupList2 = { };
-    // static String[] EmployeeGroupList3 = { };
-    // static String[] EmployeeGroupList4 = { };
     static Employee employee = new Employee();
     static Employee.FirstGroup G1 = employee.new FirstGroup();
     static Employee.SecondGroup G2 = employee.new SecondGroup();
@@ -20,7 +17,6 @@ public class EmployeeRoster extends Employee {
     static ArrayList<Integer> storeGroup4_id = new ArrayList<Integer>();
     static ArrayList<String> storeTypesEmployees = new ArrayList<String>();
     String list_types;
-    // static Formatter form = new Formatter();
     static Random rand = new Random();
     static EmployeeRoster main = new EmployeeRoster();
     static Scanner in = new Scanner(System.in);
@@ -116,10 +112,9 @@ public class EmployeeRoster extends Employee {
             }
         }
 
-        
-
     }
 
+    // stores hourlyEmployees
     public static void Group1List() {
         for (int i = 0; i < G1.empList.length; i++) {
             storeGroup1.add(G1.empList[i]);
@@ -127,6 +122,7 @@ public class EmployeeRoster extends Employee {
         }
     }
 
+    // stores CommissionEmployees
     public static void Group2List() {
         for (int i = 0; i < G2.empList.length; i++) {
             storeGroup2.add(G2.empList[i]);
@@ -134,6 +130,7 @@ public class EmployeeRoster extends Employee {
         }
     }
 
+    // stores BasePlusCommissionEmployees
     public static void Group3List() {
         for (int i = 0; i < G3.empList.length; i++) {
             storeGroup3.add(G3.empList[i]);
@@ -141,6 +138,7 @@ public class EmployeeRoster extends Employee {
         }
     }
 
+    // stores PieceWorkerEmployees
     public static void Group4List() {
         for (int i = 0; i < G4.empList.length; i++) {
             storeGroup4.add(G4.empList[i]);
@@ -148,6 +146,7 @@ public class EmployeeRoster extends Employee {
         }
     }
 
+    // check if format is numerical
     private static boolean isAnumber(String text) {
 
         if (text.equals("") || text == null) {
@@ -164,41 +163,48 @@ public class EmployeeRoster extends Employee {
         }
     }
 
+    // count hourlyEmployees
     public static int countHourlyEmployee() {
         return storeGroup1.size();
     }
 
+    // count PeiceWorkerEmployee
     public static int countPeiceWorkerEmployee() {
         return storeGroup4.size();
     }
 
+    // count CommissionEmployee
     public static int countCommissionEmployee() {
         return storeGroup2.size();
     }
 
+    // count BasePlusCommissionEmployee
     public static int countBasePlusCommissionEmployee() {
         return storeGroup3.size();
     }
-    //
 
+    // displays information for HourlyEmployees
     public static void displayHourlyEmployee() {
         for (int i = 0; i < storeGroup1.size(); i++) {
             out.println((i + 1) + ". " + storeGroup1.get(i));
         }
     }
 
+    // displays information for PeiceWorkerEmployee
     public static void displayPeiceWorkerEmployee() {
         for (int i = 0; i < storeGroup4.size(); i++) {
             out.println((i + 1) + ". " + storeGroup4.get(i));
         }
     }
 
+    // displays information for CommissionEmployee
     public static void displayCommissionEmployee() {
         for (int i = 0; i < storeGroup2.size(); i++) {
             out.println((i + 1) + ". " + storeGroup2.get(i));
         }
     }
 
+    // displays information for BasePlusCommissionEmployee
     public static void displayBasePlusCommissionEmployee() {
         for (int i = 0; i < storeGroup3.size(); i++) {
             out.println((i + 1) + ". " + storeGroup3.get(i));
@@ -240,6 +246,7 @@ public class EmployeeRoster extends Employee {
 
     }
 
+    // add new employee
     public static void addEmployee(int empID, String empName, String empType) {
 
         if (empType.equals(G1.name)) {
@@ -262,6 +269,7 @@ public class EmployeeRoster extends Employee {
 
     }
 
+    // compute transactions
     public static void computeTransaction(int trans) {
         int emptype = 0;
         switch (trans) {
@@ -319,6 +327,7 @@ public class EmployeeRoster extends Employee {
 
     }
 
+    // type of transactions
     public static void typeofTransaction(String type_transc) {
         String store = "";
         store += "\n1. ".concat(G1.name).concat("\n");

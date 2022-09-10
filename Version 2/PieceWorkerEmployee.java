@@ -9,14 +9,16 @@ public class PieceWorkerEmployee extends Employee {
     static String computed;
     static Employee main2 = new Employee();
     static Employee.FourthGroup G4 = main2.new FourthGroup();
+    static Scanner obj = new Scanner(System.in);
 
+    // Default constructor
     public PieceWorkerEmployee() {
         TestingMain();
     }
 
     public static void main(String[] args) {
         String input_store;
-        Scanner obj = new Scanner(System.in);
+
         PieceWorkerEmployee main = new PieceWorkerEmployee();
         main: while (true) {
             out.println("Select employee(exit): ");
@@ -111,11 +113,13 @@ public class PieceWorkerEmployee extends Employee {
         }
     }
 
+    // converts all information into a string
     public String toString() {
         return "\n" + displayInfo(empID, empName, PieceChoice) + "\nTotal salary: Php."
                 + computed;
     }
 
+    // displays information
     public Object displayInfo(int empID, String empName, double PieceChoice) {
         String Result = "Employee Name: " + empName + "\nEmployee ID: " + empID +
                 "\nTotal Piece Finished: " + Math.round(PieceChoice) + "pc/s";
@@ -123,6 +127,7 @@ public class PieceWorkerEmployee extends Employee {
 
     }
 
+    // compute employee's salary
     static String computeSalary(double PieceChoice, double ratePerPiece) {
         double result;
         double store;
@@ -144,12 +149,12 @@ public class PieceWorkerEmployee extends Employee {
 
     }
 
+    // check if format is numerical
     private static boolean isAnumber(String text) {
 
         if (text.equals("") || text == null) {
             return false;
         }
-
         try {
             Double.parseDouble(text);
             return true;

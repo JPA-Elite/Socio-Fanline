@@ -8,14 +8,15 @@ public class CommisionEmployee extends Employee {
     static String computed;
     static Employee main2 = new Employee();
     static Employee.SecondGroup G2 = main2.new SecondGroup();
+    static Scanner obj = new Scanner(System.in);
 
+    // Default constructor
     public CommisionEmployee() {
         TestingMain();
     }
 
     public static void main(String[] args) {
 
-        Scanner obj = new Scanner(System.in);
         CommisionEmployee main = new CommisionEmployee();
 
         do {
@@ -98,12 +99,14 @@ public class CommisionEmployee extends Employee {
         }
     }
 
+    // converts all information into a string
     public String toString() {
         return "\n" + displayInfo(empID, empName, totalSales) + "\nTotal salary: Php."
                 + computed;
 
     }
 
+    // displays information
     public Object displayInfo(int empID, String empName, double totalSales) {
         String Result = "Employee Name: " + empName + "\nEmployee ID: " + empID +
                 "\nTotal Sales: Php." + totalSales;
@@ -111,6 +114,7 @@ public class CommisionEmployee extends Employee {
 
     }
 
+    // compute employee's salary
     static String computeSalary(double totalSales) {
         double result = 0;
         if (totalSales <= 10000) {

@@ -14,7 +14,9 @@ public class HourlyEmployee extends Employee {
     static String computed;
     static Employee main2 = new Employee();
     static Employee.FirstGroup G1 = main2.new FirstGroup();
+    static Scanner obj = new Scanner(System.in);
 
+    // Default constructor
     public HourlyEmployee() {
         TestingMain();
     }
@@ -32,7 +34,6 @@ public class HourlyEmployee extends Employee {
     public static void main(String[] args) {
 
         HourlyEmployee main = new HourlyEmployee();
-        Scanner obj = new Scanner(System.in);
 
         // a ob = new HourlyEmployee();
         // out.println(ob.toString());
@@ -118,6 +119,7 @@ public class HourlyEmployee extends Employee {
         this.employee = empNew;
     }
 
+    // displays information
     public Object displayInfo(int empID, String empName, double totalHoursWorked, double ratePerHour) {
         String Result = "Employee Name: " + empName + "\nEmployee ID: " + empID +
                 "\nTotal Hours Worked: " + totalHoursWorked + " hour/s" +
@@ -125,6 +127,7 @@ public class HourlyEmployee extends Employee {
         return Result;
     }
 
+    // compute employee's salary
     static String computeSalary(double totalHoursWorked, double ratePerHour) {
         float totalHours = (float) totalHoursWorked;
         float overtimeHours = 0;
@@ -137,6 +140,7 @@ public class HourlyEmployee extends Employee {
         return String.valueOf(total);
     }
 
+    // converts all information into a string
     public String toString() {
         return "\n" + displayInfo(idChoose, empChoose, TotalhoursChoose, rateChoose) + "\nTotal salary: Php."
                 + computed;

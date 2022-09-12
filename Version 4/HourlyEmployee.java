@@ -12,13 +12,10 @@ public class HourlyEmployee extends Employee {
     static double rateChoose;
     private String employee;
     static String computed;
-    static HourlyEmployee main2 = new HourlyEmployee();
-    static Employee.FirstGroup G1 = main2.new FirstGroup();
+    static HourlyEmployee main = new HourlyEmployee();
+    static HourlyEmployee.FirstGroup G1 = main.new FirstGroup();
     static Scanner obj = new Scanner(System.in);
-    
-    public void computeSalary(){
-
-    }
+  
     // Default constructor
     public HourlyEmployee() {
         TestingMain();
@@ -35,12 +32,6 @@ public class HourlyEmployee extends Employee {
     }
 
     public static void main(String[] args) {
-
-        HourlyEmployee main = new HourlyEmployee();
-
-        // a ob = new HourlyEmployee();
-        // out.println(ob.toString());
-
         do {
             out.println("\nSelect employee(exit): ");
             String input = obj.nextLine();

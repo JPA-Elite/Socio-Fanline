@@ -1,7 +1,22 @@
 import java.util.*;
 import static java.lang.System.out;
 
-public class HourlyEmployee extends Employee {
+class HourlyEmployee_ extends Employee {
+    public String computeSalary() {
+        double totalHours = Double.valueOf(HourlyEmployee.TotalhoursChoose);
+        float overtimeHours = 0;
+
+        if (Double.valueOf(HourlyEmployee.TotalhoursChoose) > 40) {
+            overtimeHours = (float) (Double.valueOf(HourlyEmployee.TotalhoursChoose) - 40);
+            totalHours = 40;
+        }
+        double total = totalHours * Double.valueOf(HourlyEmployee.rateChoose) +
+                overtimeHours * Double.valueOf(HourlyEmployee.rateChoose) * 1.5;
+        return String.valueOf(total);
+    }
+}
+
+public class HourlyEmployee {
 
     String empName;
     String totalHoursWorked;
@@ -12,11 +27,12 @@ public class HourlyEmployee extends Employee {
     static double rateChoose;
     private String employee;
     static String computed;
-    static HourlyEmployee main = new HourlyEmployee();
-    static HourlyEmployee.FirstGroup G1 = main.new FirstGroup();
+    static HourlyEmployee_ main2 = new HourlyEmployee_();
+    static HourlyEmployee_.FirstGroup Group1 = main2.new FirstGroup();
     static Scanner obj = new Scanner(System.in);
-  
+
     // Default constructor
+
     public HourlyEmployee() {
         TestingMain();
     }
@@ -32,6 +48,7 @@ public class HourlyEmployee extends Employee {
     }
 
     public static void main(String[] args) {
+        HourlyEmployee main = new HourlyEmployee();
         do {
             out.println("\nSelect employee(exit): ");
             String input = obj.nextLine();
@@ -41,38 +58,38 @@ public class HourlyEmployee extends Employee {
             try {
                 if (main.getName().equals("exit")) {
                     System.exit(0);
-                } else if (Integer.valueOf(main.getName()) <= G1.empList.length) {
+                } else if (Integer.valueOf(main.getName()) <= Group1.empList.length) {
                     switch (Integer.valueOf(main.getName())) {
                         case 1:
-                            empChoose = G1.empList[0];
-                            idChoose = G1.idList[0];
-                            TotalhoursChoose = G1.TotalhoursList[0];
-                            rateChoose = G1.rateList[0];
+                            empChoose = Group1.empList[0];
+                            idChoose = Group1.idList[0];
+                            TotalhoursChoose = Group1.TotalhoursList[0];
+                            rateChoose = Group1.rateList[0];
 
                             break;
                         case 2:
-                            empChoose = G1.empList[1];
-                            idChoose = G1.idList[1];
-                            TotalhoursChoose = G1.TotalhoursList[1];
-                            rateChoose = G1.rateList[1];
+                            empChoose = Group1.empList[1];
+                            idChoose = Group1.idList[1];
+                            TotalhoursChoose = Group1.TotalhoursList[1];
+                            rateChoose = Group1.rateList[1];
                             break;
                         case 3:
-                            empChoose = G1.empList[2];
-                            idChoose = G1.idList[2];
-                            TotalhoursChoose = G1.TotalhoursList[2];
-                            rateChoose = G1.rateList[2];
+                            empChoose = Group1.empList[2];
+                            idChoose = Group1.idList[2];
+                            TotalhoursChoose = Group1.TotalhoursList[2];
+                            rateChoose = Group1.rateList[2];
                             break;
                         case 4:
-                            empChoose = G1.empList[3];
-                            idChoose = G1.idList[3];
-                            TotalhoursChoose = G1.TotalhoursList[3];
-                            rateChoose = G1.rateList[3];
+                            empChoose = Group1.empList[3];
+                            idChoose = Group1.idList[3];
+                            TotalhoursChoose = Group1.TotalhoursList[3];
+                            rateChoose = Group1.rateList[3];
                             break;
                         case 5:
-                            empChoose = G1.empList[4];
-                            idChoose = G1.idList[4];
-                            TotalhoursChoose = G1.TotalhoursList[4];
-                            rateChoose = G1.rateList[4];
+                            empChoose = Group1.empList[4];
+                            idChoose = Group1.idList[4];
+                            TotalhoursChoose = Group1.TotalhoursList[4];
+                            rateChoose = Group1.rateList[4];
                             break;
                         default:
                             break;
@@ -82,7 +99,7 @@ public class HourlyEmployee extends Employee {
                         out.println("Click \'okay\' to show information.");
                         String input2 = obj.nextLine();
                         if (input2.equals("okay")) {
-                            String compute = main.computeSalary(TotalhoursChoose, rateChoose).toString();
+                            String compute = main2.computeSalary().toString();
                             computed = compute;
                             out.println(main.toString());
                             break;
@@ -122,17 +139,6 @@ public class HourlyEmployee extends Employee {
     }
 
     // compute employee's salary
-    public String computeSalary(double totalHoursWorked, double ratePerHour) {
-        float totalHours = (float) totalHoursWorked;
-        float overtimeHours = 0;
-
-        if (totalHoursWorked > 40) {
-            overtimeHours = (float) (totalHoursWorked - 40);
-            totalHours = 40;
-        }
-        double total = totalHours * ratePerHour + overtimeHours * ratePerHour * 1.5;
-        return String.valueOf(total);
-    }
 
     // converts all information into a string
     public String toString() {
@@ -142,8 +148,8 @@ public class HourlyEmployee extends Employee {
 
     public static void TestingMain() {
         // Connected to arrays in Employee.java
-        for (int i = 1; i <= G1.empList.length; i++) {
-            out.println(i + ". " + G1.empList[i - 1]);
+        for (int i = 1; i <= Group1.empList.length; i++) {
+            out.println(i + ". " + Group1.empList[i - 1]);
         }
     }
 

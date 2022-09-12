@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Employee {
-    // static HourlyEmployee hEmployee = new HourlyEmployee();
-    // static CommisionEmployee cEmployee = new CommisionEmployee();
-    // static BasePlusCommisionEmployee bEmployee = new BasePlusCommisionEmployee();
-    // static PieceWorkerEmployee pEmployee = new PieceWorkerEmployee();
-
+ 
     static Employee main = new Employee();
     static Employee.FirstGroup G1 = main.new FirstGroup();
     static Employee.SecondGroup G2 = main.new SecondGroup();

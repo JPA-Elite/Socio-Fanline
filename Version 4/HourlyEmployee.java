@@ -12,10 +12,13 @@ public class HourlyEmployee extends Employee {
     static double rateChoose;
     private String employee;
     static String computed;
-    static Employee main2 = new Employee();
+    static HourlyEmployee main2 = new HourlyEmployee();
     static Employee.FirstGroup G1 = main2.new FirstGroup();
     static Scanner obj = new Scanner(System.in);
+    
+    public void computeSalary(){
 
+    }
     // Default constructor
     public HourlyEmployee() {
         TestingMain();
@@ -88,7 +91,7 @@ public class HourlyEmployee extends Employee {
                         out.println("Click \'okay\' to show information.");
                         String input2 = obj.nextLine();
                         if (input2.equals("okay")) {
-                            String compute = computeSalary(TotalhoursChoose, rateChoose).toString();
+                            String compute = main.computeSalary(TotalhoursChoose, rateChoose).toString();
                             computed = compute;
                             out.println(main.toString());
                             break;
@@ -128,7 +131,7 @@ public class HourlyEmployee extends Employee {
     }
 
     // compute employee's salary
-    static String computeSalary(double totalHoursWorked, double ratePerHour) {
+    public String computeSalary(double totalHoursWorked, double ratePerHour) {
         float totalHours = (float) totalHoursWorked;
         float overtimeHours = 0;
 

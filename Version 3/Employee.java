@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Employee {
-    // static HourlyEmployee hEmployee = new HourlyEmployee();
-    // static CommisionEmployee cEmployee = new CommisionEmployee();
-    // static BasePlusCommisionEmployee bEmployee = new BasePlusCommisionEmployee();
-    // static PieceWorkerEmployee pEmployee = new PieceWorkerEmployee();
-
+ 
     static Employee main = new Employee();
     static Employee.FirstGroup G1 = main.new FirstGroup();
     static Employee.SecondGroup G2 = main.new SecondGroup();
@@ -18,7 +14,7 @@ public class Employee {
 
     // HourlyEmployees
     public class FirstGroup {
-        String name = "Hourly Employees";
+        String name = "Hourly Employee";
         String[] empList = { "Joshua Algadipe", "Janrae Fagaragan",
                 "Jan Nino Baoc", "Mark Joseph Molina", "Juspher Balangyao" };
 
@@ -30,7 +26,7 @@ public class Employee {
 
     // CommisionEmployees
     public class SecondGroup {
-        String name = "Commision Employees";
+        String name = "Commision Employee";
         String[] empList = { "Joseph Tan", "Jovie Bendijo",
                 "Albert Cruz", "Rafael Mae Sanchez", "Rodrigo Martinez" };
 
@@ -41,7 +37,7 @@ public class Employee {
 
     // BasePlusCommisionEmployees
     public class ThirdGroup {
-        String name = "Base Plus Commision Employees";
+        String name = "Base Plus Commision Employee";
         String[] empList = { "Mary grace Galan", "Mikey Ferrer",
                 "Jhon Vincent Arnaiz", "Lady ann Lebosada", "Christian Lance" };
 
@@ -52,7 +48,7 @@ public class Employee {
 
     // PieceWorkerEmployee
     public class FourthGroup {
-        String name = "PieceWorker Employees";
+        String name = "PieceWorker Employee";
         String[] empList = { "Jei ann Bayer", "Cristopher Lawrence",
                 "Joseph Menoza", "Caspher Mae Ann", "Jaymar Sta.Ana" };
 

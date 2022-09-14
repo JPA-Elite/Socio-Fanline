@@ -1,13 +1,30 @@
 import java.util.*;
 import static java.lang.System.out;
 
-public class CommisionEmployee extends Employee {
+class CommisionEmployee_ extends Employee {
+    // compute employee's salary
+    public String computeSalary() {
+        double result = 0;
+        if (CommisionEmployee.totalSales <= 10000) {
+            result = CommisionEmployee.totalSales * 0.05;
+        } else if (CommisionEmployee.totalSales > 10000 && CommisionEmployee.totalSales < 50000) {
+            result = CommisionEmployee.totalSales * 0.10;
+        } else if (CommisionEmployee.totalSales > 50000 && CommisionEmployee.totalSales < 100000) {
+            result = CommisionEmployee.totalSales * 0.15;
+        } else if (CommisionEmployee.totalSales > 100000) {
+            result = CommisionEmployee.totalSales * 0.30;
+        }
+        return String.valueOf(result);
+    }
+}
+
+public class CommisionEmployee {
     static int empID;
     static String empName;
     static double totalSales;
     static String computed;
-    static Employee main2 = new Employee();
-    static Employee.SecondGroup G2 = main2.new SecondGroup();
+    static CommisionEmployee_ main2 = new CommisionEmployee_();
+    static CommisionEmployee_.SecondGroup G2 = main2.new SecondGroup();
     static Scanner obj = new Scanner(System.in);
 
     // Default constructor
@@ -62,7 +79,7 @@ public class CommisionEmployee extends Employee {
                         out.println("Click \'okay\' to show information.");
                         String input2 = obj.nextLine();
                         if (input2.equals("okay")) {
-                            String compute = computeSalary(totalSales);
+                            String compute = main2.computeSalary().toString();
                             computed = compute;
                             out.println(main.toString());
                             break;
@@ -112,21 +129,6 @@ public class CommisionEmployee extends Employee {
                 "\nTotal Sales: Php." + totalSales;
         return Result;
 
-    }
-
-    // compute employee's salary
-    static String computeSalary(double totalSales) {
-        double result = 0;
-        if (totalSales <= 10000) {
-            result = totalSales * 0.05;
-        } else if (totalSales > 10000 && totalSales < 50000) {
-            result = totalSales * 0.10;
-        } else if (totalSales > 50000 && totalSales < 100000) {
-            result = totalSales * 0.15;
-        } else if (totalSales > 100000) {
-            result = totalSales * 0.30;
-        }
-        return String.valueOf(result);
     }
 
 }

@@ -1,14 +1,31 @@
 import java.util.*;
 import static java.lang.System.out;
 
-public class BasePlusCommisionEmployee extends Employee {
+class BasePlusCommisionEmployee_ extends Employee {
+    // compute employee's salary
+    public String computeSalary() {
+        double result = 0;
+        if (BasePlusCommisionEmployee.totalSales <= 10000) {
+            result = (BasePlusCommisionEmployee.totalSales * 0.05) + BasePlusCommisionEmployee.baseSalary;
+        } else if (BasePlusCommisionEmployee.totalSales > 10000 && BasePlusCommisionEmployee.baseSalary < 50000) {
+            result = (BasePlusCommisionEmployee.totalSales * 0.10) + BasePlusCommisionEmployee.baseSalary;
+        } else if (BasePlusCommisionEmployee.totalSales > 50000 && BasePlusCommisionEmployee.baseSalary < 100000) {
+            result = (BasePlusCommisionEmployee.totalSales * 0.15) + BasePlusCommisionEmployee.baseSalary;
+        } else if (BasePlusCommisionEmployee.totalSales > 100000) {
+            result = (BasePlusCommisionEmployee.totalSales * 0.30) + BasePlusCommisionEmployee.baseSalary;
+        }
+        return String.valueOf(result);
+    }
+}
+
+public class BasePlusCommisionEmployee {
     static int empID;
     static String empName;
     static double totalSales;
     static double baseSalary = 5000;
     static String computed;
-    static Employee main2 = new Employee();
-    static Employee.ThirdGroup G3 = main2.new ThirdGroup();
+    static BasePlusCommisionEmployee_ main2 = new BasePlusCommisionEmployee_();
+    static BasePlusCommisionEmployee_.ThirdGroup G3 = main2.new ThirdGroup();
     static Scanner obj = new Scanner(System.in);
 
     // Default constructor
@@ -76,7 +93,7 @@ public class BasePlusCommisionEmployee extends Employee {
                         String input3 = obj.nextLine();
                         try {
                             if (input3.equals("okay")) {
-                                String compute = computeSalary(totalSales, baseSalary);
+                                String compute = main2.computeSalary();
                                 computed = compute;
                                 out.println(main.toString());
                             } else {
@@ -113,21 +130,6 @@ public class BasePlusCommisionEmployee extends Employee {
         for (int i = 1; i <= G3.empList.length; i++) {
             out.println(i + ". " + G3.empList[i - 1]);
         }
-    }
-
-    // compute employee's salary
-    static String computeSalary(double totalSales, double baseSalary) {
-        double result = 0;
-        if (totalSales <= 10000) {
-            result = (totalSales * 0.05) + baseSalary;
-        } else if (totalSales > 10000 && totalSales < 50000) {
-            result = (totalSales * 0.10) + baseSalary;
-        } else if (totalSales > 50000 && totalSales < 100000) {
-            result = (totalSales * 0.15) + baseSalary;
-        } else if (totalSales > 100000) {
-            result = (totalSales * 0.30) + baseSalary;
-        }
-        return String.valueOf(result);
     }
 
     // displays information

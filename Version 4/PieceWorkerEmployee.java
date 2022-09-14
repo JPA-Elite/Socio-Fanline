@@ -1,14 +1,36 @@
 import java.util.*;
 import static java.lang.System.out;
 
-public class PieceWorkerEmployee extends Employee {
+class PieceWorkerEmployee_ extends Employee {
+    // compute employee's salary
+    public String computeSalary() {
+        double result;
+        double store;
+        double store2;
+        store2 = PieceWorkerEmployee.PieceChoice * PieceWorkerEmployee.ratePerPiece;
+        store = PieceWorkerEmployee.PieceChoice;
+
+        while (true) {
+            if ((store - 100) < 100) {
+                break;
+            }
+            store2 = store2 * 10;
+            store = store - 100;
+        }
+        result = store2;
+
+        return String.valueOf(result);
+    }
+}
+
+public class PieceWorkerEmployee {
     static int empID;
     static String empName;
     static double PieceChoice;
     static double ratePerPiece = 50;
     static String computed;
-    static Employee main2 = new Employee();
-    static Employee.FourthGroup G4 = main2.new FourthGroup();
+    static PieceWorkerEmployee_ main2 = new PieceWorkerEmployee_();
+    static PieceWorkerEmployee_.FourthGroup G4 = main2.new FourthGroup();
     static Scanner obj = new Scanner(System.in);
 
     // Default constructor
@@ -75,7 +97,7 @@ public class PieceWorkerEmployee extends Employee {
                         } else {
                             if (input3[0].equals("okay") && isAnumber(input3[1])) {
                                 ratePerPiece = Double.parseDouble(input3[1]);
-                                computed = computeSalary(PieceChoice, ratePerPiece);
+                                computed = main2.computeSalary();
                                 out.println(main.toString());
                                 break;
                             } else {
@@ -124,28 +146,6 @@ public class PieceWorkerEmployee extends Employee {
         String Result = "Employee Name: " + empName + "\nEmployee ID: " + empID +
                 "\nTotal Piece Finished: " + Math.round(PieceChoice) + "pc/s";
         return Result;
-
-    }
-
-    // compute employee's salary
-    static String computeSalary(double PieceChoice, double ratePerPiece) {
-        double result;
-        double store;
-        double store2;
-        store2 = PieceChoice * ratePerPiece;
-        store = PieceChoice;
-
-        while (true) {
-            if ((store - 100) < 100) {
-                break;
-            }
-            store2 = store2 * 10;
-            store = store - 100;
-        }
-
-        result = store2;
-
-        return String.valueOf(result);
 
     }
 

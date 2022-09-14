@@ -31,6 +31,7 @@ public class EmployeeRoster extends Employee {
         storeTypesEmployees.add(G4.name);
         storeTypesEmployees.add("All Employees");
         storeTypesEmployees.add("Other options");
+        storeTypesEmployees.add("Exit");
 
         for (String i : storeTypesEmployees) {
             count++;
@@ -46,7 +47,7 @@ public class EmployeeRoster extends Employee {
         Group2List();
         Group3List();
         Group4List();
-        while (true) {
+        mainParent: while (true) {
 
             out.println(String.format("\nTypes of Employees:\n%s\nSelect option: ", main.list_types));
             String inputted = in.nextLine();
@@ -100,6 +101,8 @@ public class EmployeeRoster extends Employee {
                         }
 
                         break;
+                    case 7:
+                        break mainParent;
 
                     default:
                         out.println("Incorrect number selected!");

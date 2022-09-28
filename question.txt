@@ -1,0 +1,12 @@
+Answer the following in your own words.
+1. What is the difference between version 1 and 2? Give details of your observations.
+  - for me in my own understanding, the difference of them is that on version 2 there is the inheritance between the two classes where there is the parent class and the     sub class. While version 1 doesn't have.
+  
+2. What is the use of the instanceof operator and how does this operator help in making the version 3 and 4?
+  - Using the Java "instanceof" operator, you can determine whether an object is an instance of the supplied type (class or subclass or interface). Because it compares       the instance with type, it is sometimes referred to as a type comparison operator.
+  
+3. What is the difference between version 3 and version 4?
+  - for their differences, version 3 can directly access when it is being inherit by the other class while ther version 4 contains abstract. Version 4 is a restricted       class that cannot access directly but to inherit first by the other class. 
+  
+4. What is an abstract class and abstract method?
+  -Objects cannot be created using the restricted class known as an abstract one (to access it, it must be inherited from another class). The abstract method has no body    and is only applicable to abstract classes. The class's subclass supplies the body (inherited from).
